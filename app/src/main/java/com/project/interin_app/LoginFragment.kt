@@ -8,7 +8,9 @@ import androidx.navigation.fragment.findNavController
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        activity?.title = "Авторизация"
         view.findViewById<Button>(R.id.fl_registration_button).setOnClickListener{
+            activity?.title = "Регистрация"
             findNavController().navigate(R.id.action_loginFragment_to_registrationFragment)
         }
     }
