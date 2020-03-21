@@ -47,7 +47,7 @@
         android:inputType="date"
         android:hint="Дата рождения"/>
     <Button
-        android:id="@+id/fl_registration_button"
+        android:id="@+id/fr_registration_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Зарегистрироваться" />
