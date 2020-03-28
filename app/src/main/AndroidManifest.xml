@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ListOfDoctors"/>
-        <activity android:name=".DoctorProfile"/>
+        <activity android:name=".doctorProfile.DoctorProfile"/>
     </application>
 
 </manifest>
