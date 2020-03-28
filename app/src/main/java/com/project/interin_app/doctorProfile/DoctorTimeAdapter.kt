@@ -5,9 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.project.interin_app.Doctor
+import com.project.interin_app.DoctorAdapter
 import com.project.interin_app.R
 
-class DoctorTimeAdapter(var values: List<String>): RecyclerView.Adapter<DoctorTimeAdapter.ViewHolder>(){
+class DoctorTimeAdapter(var values: List<String>, val itemClick: Listener): RecyclerView.Adapter<DoctorTimeAdapter.ViewHolder>(){
 
     override fun getItemCount() = values.size
 
@@ -17,13 +19,21 @@ class DoctorTimeAdapter(var values: List<String>): RecyclerView.Adapter<DoctorTi
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView?.text = values[position]
+        holder.bind(values[position])
     }
 
-    class ViewHolder(itemView: View?): RecyclerView.ViewHolder(itemView!!){
-        var textView: TextView? = null
-        init {
-            textView =  itemView?.findViewById(R.id.rv_time_doctor)
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(text: String) {
+            val textViewName = itemView.findViewById<TextView>(R.id.rv_time_doctor)
+            textViewName.text = text
+            itemView.setOnClickListener{
+                if(adapterPosition != RecyclerView.NO_POSITION){
+                    itemClick.onItemClick(values[adapterPosition])
+                }
+            }
         }
+    }
+    interface Listener{
+        fun onItemClick(time: String)
     }
 }

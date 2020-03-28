@@ -17,7 +17,7 @@ class ListOfDoctors : AppCompatActivity(R.layout.activity_listofdoctors) {
         users.add(Doctor("Александр", "Пушкин"))
         users.add(Doctor("Александр", "Пушкин"))
         users.add(Doctor("Александр", "Пушкин"))
-
+        actionBar?.setTitle("Выбр врача")
         val recyclerView = findViewById<RecyclerView>(R.id.ald_rv_doctors)
         recyclerView.adapter = DoctorAdapter(users, object: DoctorAdapter.Listener{
             override fun onItemClick(doctor: Doctor) {

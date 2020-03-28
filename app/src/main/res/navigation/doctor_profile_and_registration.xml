@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/login_and_registration"
+    app:startDestination="@id/doctorFragment">
+    <fragment
+        android:id="@+id/doctorFragment"
+        android:name="com.project.interin_app.doctorProfile.DoctorFragment">
+        <action
+            android:id="@+id/action_doctorFragment_to_doctorRegistrationFragment"
+            app:destination="@id/doctorRegistrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorRegistrationFragment"
+        android:name="com.project.interin_app.DoctorRegistrationFragment" />
+</navigation>
