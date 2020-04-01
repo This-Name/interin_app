@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
@@ -15,9 +16,13 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
         val time = mutableListOf<String>()
         time.add("11:10")
         time.add("11:30")
-
+        time.add("11:10")
+        time.add("11:30")
+        time.add("11:10")
+        time.add("11:30")
+        activity?.title = "Выбор даты и времени"
         val recyclerView: RecyclerView = view.findViewById(R.id.ad_rv_time)
-        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.layoutManager = GridLayoutManager(activity, 3)
         recyclerView.adapter = DoctorTimeAdapter(time, object: DoctorTimeAdapter.Listener{
             override fun onItemClick(time: String) {
                 activity?.title = "Запись"

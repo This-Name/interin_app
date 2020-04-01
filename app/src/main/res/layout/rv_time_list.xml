@@ -10,15 +10,18 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
-        android:paddingStart="10dp"
-        android:paddingLeft="10dp"
-        android:paddingEnd="10dp"
-        android:paddingRight="10dp"
+        android:padding="5dp"
         android:textSize="20sp"
+        android:layout_margin="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
+        android:text="11:30"
+        android:gravity="center"
+        android:textColor="@color/cardview_dark_background"
+        android:background="#30d5c8"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
