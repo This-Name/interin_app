@@ -20,12 +20,11 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
         time.add("11:30")
         time.add("11:10")
         time.add("11:30")
-        activity?.title = "Выбор даты и времени"
+        activity?.title = ""
         val recyclerView: RecyclerView = view.findViewById(R.id.ad_rv_time)
         recyclerView.layoutManager = GridLayoutManager(activity, 3)
         recyclerView.adapter = DoctorTimeAdapter(time, object: DoctorTimeAdapter.Listener{
             override fun onItemClick(time: String) {
-                activity?.title = "Запись"
                 findNavController().navigate(R.id.action_doctorFragment_to_doctorRegistrationFragment)
             }
 

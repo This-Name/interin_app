@@ -10,7 +10,7 @@
         android:id="@+id/ald_search_doctors"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="ФИО доктора/категория"
+        android:hint="@string/full_name_doctor_or_category"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/ald_search_button"
@@ -20,7 +20,7 @@
         android:id="@+id/ald_search_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Поиск"
+        android:text="@string/search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
     <androidx.recyclerview.widget.RecyclerView

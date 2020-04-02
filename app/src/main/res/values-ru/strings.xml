@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Интерин</string>
+    <string name="search_a_doctor">Поиск врача</string>
+    <string name="search">Найти</string>
+    <string name="full_name_doctor_or_category">ФИО доктора/категория</string>
+    <string name="date_and_time_selection">Выбор даты и времени</string>
+    <string name="doctor_registration">Запись к врачу</string>
+    <string name="first_name">Имя</string>
+    <string name="last_name">Фамилия</string>
+    <string name="date_of_birth">Дата рождения</string>
+    <string name="telephone">Телефон</string>
+    <string name="email">Почта</string>
+    <string name="polis">Полис</string>
+    <string name="comment">Комментарий</string>
+    <string name="sign_up">Записаться</string>
+    <string name="completed_sign_up">Вы успешно записаны</string>
+</resources>
