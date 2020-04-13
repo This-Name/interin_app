@@ -14,4 +14,5 @@
     <string name="comment">Комментарий</string>
     <string name="sign_up">Записаться</string>
     <string name="completed_sign_up">Вы успешно записаны</string>
+    <string name="specialization">Специальность</string>
 </resources>
