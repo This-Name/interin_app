@@ -12,10 +12,10 @@ class ListofDoctorsFragment : Fragment(R.layout.fragment_listofdoctors_doctors) 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val users = ArrayList<Doctor>()
-        users.add(Doctor("Александр", "Пушкин"))
-        users.add(Doctor("Александр", "Пушкин"))
-        users.add(Doctor("Александр", "Пушкин"))
-        users.add(Doctor("Александр", "Пушкин"))
+        users.add(Doctor("Базова Дана", "Окулист"))
+        users.add(Doctor("Иванов Иван", "Окулист"))
+        users.add(Doctor("Бабаров Бабар", "Окулист"))
+        users.add(Doctor("Навинов Навин", "Окулист"))
         val recyclerView = view.findViewById<RecyclerView>(R.id.fld_rv_doctors)
         recyclerView.adapter = DoctorAdapter(users, object: DoctorAdapter.Listener{
             override fun onItemClick(doctor: Doctor) {
