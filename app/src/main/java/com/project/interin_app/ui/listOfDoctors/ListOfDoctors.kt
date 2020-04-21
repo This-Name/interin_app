@@ -1,12 +1,8 @@
-package com.project.interin_app
+package com.project.interin_app.ui.listOfDoctors
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.project.interin_app.doctorProfile.DoctorProfile
+import com.project.interin_app.R
 
 class ListOfDoctors : AppCompatActivity(R.layout.activity_listofdoctors) {
     override fun onCreate(savedInstanceState: Bundle?) {

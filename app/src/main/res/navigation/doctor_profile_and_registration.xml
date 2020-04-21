@@ -5,12 +5,12 @@
     app:startDestination="@id/doctorFragment">
     <fragment
         android:id="@+id/doctorFragment"
-        android:name="com.project.interin_app.doctorProfile.DoctorFragment">
+        android:name="com.project.interin_app.ui.doctorProfile.profile.DoctorFragment">
         <action
             android:id="@+id/action_doctorFragment_to_doctorRegistrationFragment"
             app:destination="@id/doctorRegistrationFragment" />
     </fragment>
     <fragment
         android:id="@+id/doctorRegistrationFragment"
-        android:name="com.project.interin_app.DoctorRegistrationFragment" />
+        android:name="com.project.interin_app.ui.doctorProfile.registration.DoctorRegistrationFragment" />
 </navigation>

@@ -5,12 +5,12 @@
     app:startDestination="@id/specialization_doctor">
     <fragment
         android:id="@+id/specialization_doctor"
-        android:name="com.project.interin_app.SpecializationFragment">
+        android:name="com.project.interin_app.ui.listOfDoctors.specialization.SpecializationFragment">
         <action
             android:id="@+id/action_specialization_doctor_to_list_of_doctors"
             app:destination="@id/list_of_doctors" />
     </fragment>
     <fragment
         android:id="@+id/list_of_doctors"
-        android:name="com.project.interin_app.ListofDoctorsFragment" />
+        android:name="com.project.interin_app.ui.listOfDoctors.doctors.ListofDoctorsFragment" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.project.interin_app.doctorProfile
+package com.project.interin_app.ui.doctorProfile
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

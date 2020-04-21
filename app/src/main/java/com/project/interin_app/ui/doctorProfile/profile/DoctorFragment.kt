@@ -1,11 +1,10 @@
-package com.project.interin_app.doctorProfile
+package com.project.interin_app.ui.doctorProfile.profile
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
 
@@ -23,12 +22,16 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
         activity?.title = ""
         val recyclerView: RecyclerView = view.findViewById(R.id.ad_rv_time)
         recyclerView.layoutManager = GridLayoutManager(activity, 3)
-        recyclerView.adapter = DoctorTimeAdapter(time, object: DoctorTimeAdapter.Listener{
-            override fun onItemClick(time: String) {
-                findNavController().navigate(R.id.action_doctorFragment_to_doctorRegistrationFragment)
-            }
+        recyclerView.adapter =
+            DoctorTimeAdapter(
+                time,
+                object :
+                    DoctorTimeAdapter.Listener {
+                    override fun onItemClick(time: String) {
+                        findNavController().navigate(R.id.action_doctorFragment_to_doctorRegistrationFragment)
+                    }
 
-        })
+                })
     }
 
 

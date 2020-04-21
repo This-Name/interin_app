@@ -1,12 +1,10 @@
-package com.project.interin_app.doctorProfile
+package com.project.interin_app.ui.doctorProfile.profile
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.project.interin_app.Doctor
-import com.project.interin_app.DoctorAdapter
 import com.project.interin_app.R
 
 class DoctorTimeAdapter(var values: List<String>, val itemClick: Listener): RecyclerView.Adapter<DoctorTimeAdapter.ViewHolder>(){

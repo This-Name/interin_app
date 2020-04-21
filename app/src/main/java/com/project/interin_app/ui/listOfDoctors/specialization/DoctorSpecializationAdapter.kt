@@ -1,15 +1,16 @@
-package com.project.interin_app
+package com.project.interin_app.ui.listOfDoctors.specialization
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.project.interin_app.R
 
 class DoctorSpecializationAdapter(var items: List<String>, val itemClick: Listener) :
     RecyclerView.Adapter<DoctorSpecializationAdapter.SpecializationViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : SpecializationViewHolder{
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : SpecializationViewHolder {
         val view =  LayoutInflater.from(parent.context).inflate(
             R.layout.rv_list_of_specializations,
             parent,
