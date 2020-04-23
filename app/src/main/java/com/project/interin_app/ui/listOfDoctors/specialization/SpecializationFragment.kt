@@ -3,6 +3,7 @@ package com.project.interin_app.ui.listOfDoctors.specialization
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,18 +13,13 @@ class SpecializationFragment : Fragment(R.layout.fragment__listofdoctors_special
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val specialization = ArrayList<String>()
-        specialization.add("Окулист")
-        specialization.add("Терапевт")
-        specialization.add("Хирург")
-        specialization.add("Невролог")
-
+        val specializationViewModel by viewModels<SpecializationViewModel>()
         activity?.title = ""
         val recyclerView: RecyclerView = view.findViewById(R.id.fld_rv_doctors_specialization)
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter =
             DoctorSpecializationAdapter(
-                specialization,
+                specializationViewModel.getSpecialization(),
                 object :
                     DoctorSpecializationAdapter.Listener {
                     override fun onItemClick(time: String) {
