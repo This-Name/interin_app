@@ -11,8 +11,8 @@ class ApiConnect() {
 
      fun getConnect():InterinApi = Retrofit.Builder()
             .baseUrl("https://services.interin.ru/")
-            .client(OkHttpClient.Builder().addInterceptor(ResponseInterceptor()).build())
-            .addConverterFactory(MoshiConverterFactory.create())
+            .client(OkHttpClient.Builder().build())
+            .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build().create(InterinApi::class.java)
 }

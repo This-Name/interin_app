@@ -8,7 +8,7 @@ class ResponseInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val response = chain.proceed(chain.request())
         val modified = response.newBuilder()
-            .addHeader("Content-Type", "application/json; charset=utf-8")
+            .addHeader("Content-Type", "application/json; charset=windows-1251")
             .build()
 
         return modified
