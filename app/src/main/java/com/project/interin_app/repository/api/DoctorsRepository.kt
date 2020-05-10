@@ -1,9 +1,21 @@
 package com.project.interin_app.repository.api
 
+import com.project.interin_app.repository.slotDoctorsAppointment.ROWS
+
 class DoctorsRepository {
 
     val doctorApi = ApiConnect().getConnect()
 
     //suspend fun getGroupsRepository() = doctorApi.getGroups().groups
     suspend fun getListMedInstitution() = doctorApi.getMedInstitutions()
+    suspend fun getListSlot() = getFreeSlot(doctorApi.getSlot().ROWS)
+    suspend fun getFreeSlot(slot: List<ROWS>): List<ROWS> {
+        var listSlots: MutableList<ROWS> = mutableListOf()
+        slot.forEach {
+            if(it.BOOK == null){
+                listSlots.add(it)
+            }
+        }
+        return listSlots
+    }
 }
