@@ -2,6 +2,7 @@ package com.project.interin_app.ui.listOfDoctors.specialization
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -15,10 +16,12 @@ import com.project.interin_app.repository.sheuduleMedInstitution.MedInstitution
 import kotlinx.coroutines.launch
 
 class SpecializationFragment : Fragment(R.layout.fragment__listofdoctors_specialization){
+    private lateinit var inputData: ArrayList<String> // здесь лежит все то, что передано с прошлого фрагмента
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        activity?.title = ""
+        inputData = arguments?.getStringArrayList("id_and_name")!! // получаю все с прошлого фрагмента
+        activity?.title = inputData[1]
         val usersTest = ArrayList<String>()
         usersTest.add("Осел")
         val recyclerView: RecyclerView = view.findViewById(R.id.fld_rv_doctors_specialization)

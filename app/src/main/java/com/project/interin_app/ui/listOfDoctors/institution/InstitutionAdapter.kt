@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
-import com.project.interin_app.repository.sheuduleMedInstitution.MedInstitution
 import com.project.interin_app.repository.sheuduleMedInstitution.ROWS
 
 class InstitutionAdapter(var items: List<ROWS>, val itemClick: Listener) :
@@ -18,7 +17,6 @@ RecyclerView.Adapter<InstitutionAdapter.InstitutionViewHolder>()  {
             parent,
             false
         )
-
         return InstitutionViewHolder(view)
     }
 
@@ -34,8 +32,7 @@ RecyclerView.Adapter<InstitutionAdapter.InstitutionViewHolder>()  {
     inner class InstitutionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(institution: ROWS) {
             val textViewName = itemView.findViewById(R.id.rv_institution_name) as TextView
-            textViewName.text = institution.NAME.toString()
-
+            textViewName.text = institution.NAME
             itemView.setOnClickListener{
                 if(adapterPosition != RecyclerView.NO_POSITION){
                     itemClick.onItemClick(items[adapterPosition])
