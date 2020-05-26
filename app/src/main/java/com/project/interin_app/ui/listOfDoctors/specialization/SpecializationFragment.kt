@@ -23,7 +23,9 @@ class SpecializationFragment : Fragment(R.layout.fragment__listofdoctors_special
         inputData = arguments?.getStringArrayList("id_and_name")!! // получаю все с прошлого фрагмента
         activity?.title = inputData[1]
         val usersTest = ArrayList<String>()
-        usersTest.add("Осел")
+//        usersTest.add("Осел")
+        usersTest.add("Терапевты")
+        usersTest.add("Хирурги")
         val recyclerView: RecyclerView = view.findViewById(R.id.fld_rv_doctors_specialization)
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter =

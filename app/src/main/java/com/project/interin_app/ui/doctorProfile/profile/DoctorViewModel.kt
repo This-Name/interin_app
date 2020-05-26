@@ -6,5 +6,5 @@ import com.project.interin_app.repository.api.DoctorsRepository
 
 class DoctorViewModel(application: Application): AndroidViewModel(application) {
 
-    suspend fun getListFreeSlots() = DoctorsRepository().getListSlot()
+    suspend fun getListFreeSlots(params: String): List<Any> = DoctorsRepository().getListSlot(params)
 }

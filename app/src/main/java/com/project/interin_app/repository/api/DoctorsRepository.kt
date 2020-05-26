@@ -8,7 +8,7 @@ class DoctorsRepository {
 
     //suspend fun getGroupsRepository() = doctorApi.getGroups().groups
     suspend fun getListMedInstitution() = doctorApi.getMedInstitutions()
-    suspend fun getListSlot() = getFreeSlot(doctorApi.getSlot().ROWS)
+    suspend fun getListSlot(params: String) = getFreeSlot(doctorApi.getSlot(params).ROWS)
     suspend fun getFreeSlot(slot: List<ROWS>): List<ROWS> {
         var listSlots: MutableList<ROWS> = mutableListOf()
         slot.forEach {

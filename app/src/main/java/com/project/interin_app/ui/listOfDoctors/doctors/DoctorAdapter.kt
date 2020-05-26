@@ -36,8 +36,8 @@ class DoctorAdapter(var items: List<Doctor>, val itemClick: Listener) :
         fun bind(doctor: Doctor) {
             val textViewName = itemView.findViewById(R.id.rv_name_doctor) as TextView
             val textViewAddress  = itemView.findViewById(R.id.rv_category_doctor) as TextView
-            textViewName.text = doctor.NAME
-            textViewAddress.text = doctor.GROUP_NAME
+            textViewName.text = doctor._DB
+            textViewAddress.text = doctor._TYPE
 
             itemView.setOnClickListener{
                 if(adapterPosition != RecyclerView.NO_POSITION){
