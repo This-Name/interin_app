@@ -12,7 +12,7 @@ class DoctorsRepository {
     suspend fun getFreeSlot(slot: List<ROWS>): List<ROWS> {
         var listSlots: MutableList<ROWS> = mutableListOf()
         slot.forEach {
-            if(it.BOOK == null){
+            if(it.BOOK == null && it.ACTION == 1){
                 listSlots.add(it)
             }
         }

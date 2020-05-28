@@ -21,6 +21,11 @@ class DoctorTimeAdapter(var values: List<ROWS>, val itemClick: Listener): Recycl
         holder.bind(values[position])
     }
 
+    fun loadSlots(data: List<Any>){
+        values = data as List<ROWS>
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(text: ROWS) {
             val textViewName = itemView.findViewById<TextView>(R.id.rv_time_doctor)

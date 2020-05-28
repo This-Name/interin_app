@@ -18,6 +18,7 @@ import kotlinx.coroutines.launch
 
 class DoctorFragment : Fragment(R.layout.fragment_doctor) {
     private val doctorViewModel by viewModels<DoctorViewModel>()
+    private var slotList: List<Any> = mutableListOf()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,39 +28,46 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
         val calendar: CalendarView = view.findViewById(R.id.ad_set_date_calendar)
         var currentDate = ""
         val recyclerView: RecyclerView = view.findViewById(R.id.ad_rv_time)
+        val slotList: List<Any> = mutableListOf()
+        recyclerView.layoutManager = GridLayoutManager(activity, 3)
+
+        val adapter =
+            DoctorTimeAdapter(
+                slotList as List<ROWS>,
+                object :
+                    DoctorTimeAdapter.Listener {
+                    override fun onItemClick(time: ROWS) {
+                        findNavController().navigate(R.id.action_doctorFragment_to_doctorRegistrationFragment)
+                    }
+
+                })
+        recyclerView.adapter = adapter
 
         if(currentDate == "")
-            loadSlots(SimpleDateFormat("dd.MM.yyyy").format(calendar.date), recyclerView)
+            loadSlots(SimpleDateFormat("dd.MM.yyyy").format(calendar.date), recyclerView, adapter)
 
         calendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
-            currentDate = if(month + 1 < 10)
-                "$dayOfMonth.0" + (month + 1).toString() + ".$year"
+            val formattedDay = if(dayOfMonth < 10)
+                "0" + (dayOfMonth).toString()
             else
-                "$dayOfMonth." + (month + 1).toString() + ".$year"
-//            Toast.makeText(activity, "date changed on $currentDate", Toast.LENGTH_SHORT).show()
+                (dayOfMonth).toString()
 
-            loadSlots(currentDate, recyclerView)
+            val formattedMonth = if(month + 1 < 10)
+                "0" + (month + 1).toString()
+            else
+                (month + 1).toString()
+
+            currentDate = "$formattedDay.$formattedMonth.$year"
+
+            loadSlots(currentDate, recyclerView, adapter)
         }
     }
 
-    private fun loadSlots(currentDate: String, recyclerView: RecyclerView){
+    private fun loadSlots(currentDate: String, recyclerView: RecyclerView, adapter: DoctorTimeAdapter){
         viewLifecycleOwner.lifecycleScope.launch {
-            val slotList: List<Any>
-//                Toast.makeText(activity, "Coroutine started, date = $currentDate", Toast.LENGTH_SHORT).show()
-                slotList = doctorViewModel.getListFreeSlots("{SCHEDULE_ID:\"7FA39CC10D36087CE0530100007F1682\"," +
-                        "RESOURCE_ID:\"7FA60CCEEFE36563E0530100007FA9EB\",BDATE:\"$currentDate\",EDATE:\"$currentDate\"}")
-//                recyclerView = view.findViewById(R.id.ad_rv_time)
-            recyclerView.layoutManager = GridLayoutManager(activity, 3)
-            recyclerView.adapter =
-                DoctorTimeAdapter(
-                    slotList as List<ROWS>,
-                    object :
-                        DoctorTimeAdapter.Listener {
-                        override fun onItemClick(time: ROWS) {
-                            findNavController().navigate(R.id.action_doctorFragment_to_doctorRegistrationFragment)
-                        }
-
-                    })
+            slotList = doctorViewModel.getListFreeSlots("{SCHEDULE_ID:\"7FA39CC10D36087CE0530100007F1682\"," +
+                    "RESOURCE_ID:\"7FA60CCEEFE36563E0530100007FA9EB\",BDATE:\"$currentDate\",EDATE:\"$currentDate\"}")
+            adapter.loadSlots(slotList)
         }
     }
 
