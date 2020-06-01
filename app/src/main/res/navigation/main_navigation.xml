@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/specialization_and_list_of_doctors"
+    android:id="@+id/main"
     app:startDestination="@id/med_institutionFragment">
 
     <fragment
@@ -45,7 +45,17 @@
     <fragment
         android:id="@+id/user_ProfileFragment"
         android:name="com.project.interin_app.ui.userData.userProfile.UserProfileFragment"/>
+
     <action
-        android:id="@+id/action_global_settingsFragment"
-        app:destination="@id/user_RecordsFragment" />
+        android:id="@+id/action_global_user_ProfileFragment"
+        app:destination="@id/user_ProfileFragment"
+        app:popUpTo="@id/main"/>
+    <action
+        android:id="@+id/action_global_med_institutionFragment"
+        app:destination="@id/med_institutionFragment"
+        app:popUpTo="@id/main"/>
+    <action
+        android:id="@+id/action_global_user_RecordsFragment"
+        app:destination="@id/user_RecordsFragment"
+        app:popUpTo="@id/main"/>
 </navigation>
