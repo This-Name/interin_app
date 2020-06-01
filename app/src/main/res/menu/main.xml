@@ -3,11 +3,14 @@
 
     <item
         android:id="@+id/menu_user_profile"
+        android:icon="@drawable/ic_person_black_24dp"
         android:title="Профиль" />
     <item
         android:id="@+id/menu_sign_up"
+        android:icon="@drawable/ic_create_black_24dp"
         android:title="Записаться" />
     <item
         android:id="@+id/menu_user_records"
+        android:icon="@drawable/ic_assignment_black_24dp"
         android:title="Записи" />
 </menu>
