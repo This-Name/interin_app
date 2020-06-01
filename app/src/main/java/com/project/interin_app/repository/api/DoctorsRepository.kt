@@ -1,5 +1,7 @@
 package com.project.interin_app.repository.api
 
+import com.project.interin_app.repository.doctors.GROUPS
+import com.project.interin_app.repository.doctors.RESOURCES
 import com.project.interin_app.repository.slotDoctorsAppointment.ROWS
 
 class DoctorsRepository {
@@ -18,4 +20,15 @@ class DoctorsRepository {
         }
         return listSlots
     }
+    suspend fun getSpecializations() = doctorApi.getAllDoctors().GROUPS
+    /*suspend fun getDoctors() = getOnlyDoctors(doctorApi.getAllDoctors().GROUPS)
+    suspend fun getOnlyDoctors(spec: List<GROUPS>) : List<GROUPS> {
+        var listSpec: MutableList<GROUPS> = mutableListOf()
+        spec.forEach {
+            it.RESOURCES.forEach {
+                it.
+            }
+        }
+        return listSpec
+    }*/
 }
