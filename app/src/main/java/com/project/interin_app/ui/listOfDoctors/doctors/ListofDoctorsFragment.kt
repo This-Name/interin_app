@@ -4,11 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.repository.Doctor
 import com.project.interin_app.R
-import com.project.interin_app.ui.doctorProfile.DoctorProfile
 
 class ListofDoctorsFragment : Fragment(R.layout.fragment_listofdoctors_doctors) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,7 +45,7 @@ class ListofDoctorsFragment : Fragment(R.layout.fragment_listofdoctors_doctors) 
                 object :
                     DoctorAdapter.Listener {
                     override fun onItemClick(doctor: Doctor) {
-                        startActivity(Intent(context, DoctorProfile::class.java))
+                        findNavController().navigate(R.id.action_list_of_doctorsFragment_to_doctorFragment)
                     }
                 })
         recyclerView.layoutManager = LinearLayoutManager(activity)
