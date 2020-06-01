@@ -31,7 +31,9 @@ RecyclerView.Adapter<InstitutionAdapter.InstitutionViewHolder>()  {
 
     inner class InstitutionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(institution: ROWS) {
-            val textViewName = itemView.findViewById(R.id.rv_institution_name) as TextView
+            val textViewOrganization = itemView.findViewById(R.id.rv_institution_ORGANIZATION) as TextView
+            val textViewName = itemView.findViewById(R.id.rv_institution_NAME) as TextView
+            textViewOrganization.text = institution.ORGANIZATION
             textViewName.text = institution.NAME
             itemView.setOnClickListener{
                 if(adapterPosition != RecyclerView.NO_POSITION){
