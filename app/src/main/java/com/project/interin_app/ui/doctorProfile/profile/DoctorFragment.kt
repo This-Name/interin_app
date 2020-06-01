@@ -37,7 +37,7 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
                 object :
                     DoctorTimeAdapter.Listener {
                     override fun onItemClick(time: ROWS) {
-                        findNavController().navigate(R.id.action_doctorFragment_to_doctorRegistrationFragment)
+                        findNavController().navigate(R.id.action_doctorFragment_to_doctor_RegistrationFragment)
                     }
 
                 })
