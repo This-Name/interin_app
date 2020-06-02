@@ -36,7 +36,7 @@ class InstitutionFragment : Fragment(R.layout.fragment_institution) {
                             val data = ArrayList<String>() // можно помещать любые данные которые нужны дальше
                             data.add(institution._ID)
                             data.add(institution.NAME)
-                            bundle.putStringArrayList("id_and_name", data) // передаю id и name в следующий фрагмент
+                            bundle.putStringArrayList("idAndNameOfInstitution", data) // передаю id и name в следующий фрагмент
                             findNavController().navigate(R.id.action_med_institution_to_specialization_doctor, bundle)
                         }
                     })

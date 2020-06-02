@@ -1,5 +1,9 @@
 package com.project.interin_app.repository.doctors
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class RESOURCES(
     val COMMENTS: String,
     val DEF_LENGTH: String,
@@ -37,4 +41,4 @@ data class RESOURCES(
     val _REV: Int,
     val _STATUS: Int,
     val _TYPE: String
-)
+) : Parcelable

@@ -7,7 +7,6 @@ import android.widget.CalendarView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -19,11 +18,16 @@ import kotlinx.coroutines.launch
 class DoctorFragment : Fragment(R.layout.fragment_doctor) {
     private val doctorViewModel by viewModels<DoctorViewModel>()
     private var slotList: List<Any> = mutableListOf()
+    private lateinit var institutionData: ArrayList<String>
+    private lateinit var resourceInfo: String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        activity?.title = ""
+        institutionData = arguments?.getStringArrayList("idAndNameOfInstitution")!!
+        resourceInfo = arguments?.getString("resourceId")!!
+
+        activity?.title = institutionData[1]
 
         val calendar: CalendarView = view.findViewById(R.id.ad_set_date_calendar)
         var currentDate = ""
@@ -37,16 +41,24 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
                 object :
                     DoctorTimeAdapter.Listener {
                     override fun onItemClick(time: ROWS) {
-                        findNavController().navigate(R.id.action_doctorFragment_to_doctor_RegistrationFragment)
+                        val appointmentInfo = ArrayList<String>()
+                        appointmentInfo.add(institutionData[1])
+                        appointmentInfo.add(time.GROUP)
+                        appointmentInfo.add(time.DOCTOR)
+                        appointmentInfo.add(time.START)
+                        val bundle = Bundle()
+                        bundle.putString("slotId", time.ID)
+                        bundle.putStringArrayList("appointmentInfo", appointmentInfo)
+                        findNavController().navigate(R.id.action_doctorFragment_to_doctor_RegistrationFragment, bundle)
                     }
 
                 })
         recyclerView.adapter = adapter
 
         if(currentDate == "")
-            loadSlots(SimpleDateFormat("dd.MM.yyyy").format(calendar.date), recyclerView, adapter)
+            loadSlots(SimpleDateFormat("dd.MM.yyyy").format(calendar.date), institutionData[0], resourceInfo,adapter)
 
-        calendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
+        calendar.setOnDateChangeListener { _, year, month, dayOfMonth ->
             val formattedDay = if(dayOfMonth < 10)
                 "0" + (dayOfMonth).toString()
             else
@@ -59,14 +71,21 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
 
             currentDate = "$formattedDay.$formattedMonth.$year"
 
-            loadSlots(currentDate, recyclerView, adapter)
+            loadSlots(currentDate, institutionData[0], resourceInfo,adapter)
         }
     }
 
-    private fun loadSlots(currentDate: String, recyclerView: RecyclerView, adapter: DoctorTimeAdapter){
+    private fun loadSlots(
+        currentDate: String,
+        scheduleId: String,
+        resource_id: String,
+        adapter: DoctorTimeAdapter
+    ){
         viewLifecycleOwner.lifecycleScope.launch {
-            slotList = doctorViewModel.getListFreeSlots("{SCHEDULE_ID:\"7FA39CC10D36087CE0530100007F1682\"," +
-                    "RESOURCE_ID:\"7FA60CCEEFE36563E0530100007FA9EB\",BDATE:\"$currentDate\",EDATE:\"$currentDate\"}")
+            //Schedule = 7FA39CC10D36087CE0530100007F1682 основное
+            //Resource = 7FA60CCEEFE36563E0530100007FA9EB хирург - сидоров
+            slotList = doctorViewModel.getListFreeSlots("{SCHEDULE_ID:\"$scheduleId\"," +
+                    "RESOURCE_ID:\"$resource_id\",BDATE:\"$currentDate\",EDATE:\"$currentDate\"}")
             adapter.loadSlots(slotList)
         }
     }

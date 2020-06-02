@@ -5,7 +5,7 @@ data class GROUPS(
     val DEL_TITLE: String,
     val ID: String,
     val NAME: String,
-    val RESOURCES: List<RESOURCES>,
+    val RESOURCES: ArrayList<RESOURCES>,
     val SEQ: String,
     val STATUS: Any,
     val STATUS_TEXT: String,
