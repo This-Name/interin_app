@@ -4,12 +4,72 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <EditText
+        android:id="@+id/feup_patient_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/first_name"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/feup_patient_lastname"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <EditText
+        android:id="@+id/feup_patient_lastname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/last_name"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@id/feup_patient_name"
+        app:layout_constraintBottom_toTopOf="@id/feup_patient_birthday"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <EditText
+        android:id="@+id/feup_patient_birthday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/date_of_birth"
+        android:inputType="date"
+        app:layout_constraintTop_toBottomOf="@id/feup_patient_lastname"
+        app:layout_constraintBottom_toTopOf="@id/feup_patient_phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <EditText
+        android:id="@+id/feup_patient_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/telephone"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/feup_patient_birthday"
+        app:layout_constraintBottom_toTopOf="@id/feup_patient_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <EditText
+        android:id="@+id/feup_patient_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/email"
+        app:layout_constraintTop_toBottomOf="@id/feup_patient_phone"
+        app:layout_constraintBottom_toTopOf="@id/feup_patient_policy"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <EditText
+        android:id="@+id/feup_patient_policy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/polis"
+        app:layout_constraintTop_toBottomOf="@id/feup_patient_email"
+        app:layout_constraintBottom_toTopOf="@id/feup_save_button"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
     <Button
         android:id="@+id/feup_save_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Сохранить"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/feup_patient_policy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

@@ -1,14 +1,15 @@
 package com.project.interin_app.repository.api
 
-import com.project.interin_app.repository.doctors.GROUPS
-import com.project.interin_app.repository.doctors.RESOURCES
+import com.project.interin_app.MainApplication
 import com.project.interin_app.repository.slotDoctorsAppointment.ROWS
+import com.project.interin_app.repository.userData.User
 
 class DoctorsRepository {
 
-    val doctorApi = ApiConnect().getConnect()
+    private val doctorApi = ApiConnect().getConnect()
+    private val userDataBase = MainApplication.database.UserDao()
 
-    //suspend fun getGroupsRepository() = doctorApi.getGroups().groups
+
     suspend fun getListMedInstitution() = doctorApi.getMedInstitutions()
     suspend fun getListSlot(params: String) = getFreeSlot(doctorApi.getSlot(params).ROWS)
     suspend fun getFreeSlot(slot: List<ROWS>): List<ROWS> {
@@ -21,14 +22,9 @@ class DoctorsRepository {
         return listSlots
     }
     suspend fun getSpecializations() = doctorApi.getAllDoctors().GROUPS
-    /*suspend fun getDoctors() = getOnlyDoctors(doctorApi.getAllDoctors().GROUPS)
-    suspend fun getOnlyDoctors(spec: List<GROUPS>) : List<GROUPS> {
-        var listSpec: MutableList<GROUPS> = mutableListOf()
-        spec.forEach {
-            it.RESOURCES.forEach {
-                it.
-            }
-        }
-        return listSpec
-    }*/
+
+    suspend fun getUserData() = userDataBase.getUser()
+    suspend fun updateUserData(user: User) = userDataBase.update(user)
+    suspend fun insertUserData(user: User) = userDataBase.insert(user)
+    suspend fun deleteUserData(LastName: String) = userDataBase.delete(LastName)
 }
