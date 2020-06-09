@@ -2,6 +2,7 @@ package com.project.interin_app.repository.api
 
 import com.project.interin_app.MainApplication
 import com.project.interin_app.repository.slotDoctorsAppointment.ROWS
+import com.project.interin_app.repository.userData.Records
 import com.project.interin_app.repository.userData.User
 
 class DoctorsRepository {
@@ -22,9 +23,14 @@ class DoctorsRepository {
         return listSlots
     }
     suspend fun getSpecializations() = doctorApi.getAllDoctors().GROUPS
+    suspend fun createRecord(params: String) = doctorApi.makeRecord(params)
 
     suspend fun getUserData() = userDataBase.getUser()
-    suspend fun updateUserData(user: User) = userDataBase.update(user)
-    suspend fun insertUserData(user: User) = userDataBase.insert(user)
-    suspend fun deleteUserData(LastName: String) = userDataBase.delete(LastName)
+    suspend fun updateUserData(user: User) = userDataBase.updateUser(user)
+    suspend fun insertUserData(user: User) = userDataBase.insertUser(user)
+    suspend fun deleteUserData(LastName: String) = userDataBase.deleteUser(LastName)
+
+    suspend fun getUserRecords() = userDataBase.getRecords()
+    suspend fun insertUserRecord(record: Records) = userDataBase.insertRecord(record)
+    suspend fun deleteUserRecord(Doctor: String) = userDataBase.deleteRecord(Doctor)
 }
