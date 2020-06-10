@@ -30,7 +30,7 @@ class DoctorsRepository {
     suspend fun insertUserData(user: User) = userDataBase.insertUser(user)
     suspend fun deleteUserData(LastName: String) = userDataBase.deleteUser(LastName)
 
-    suspend fun getUserRecords() = userDataBase.getRecords()
+    suspend fun getUserRecords() : List<Records> = userDataBase.getRecords()
     suspend fun insertUserRecord(record: Records) = userDataBase.insertRecord(record)
     suspend fun deleteUserRecord(Doctor: String) = userDataBase.deleteRecord(Doctor)
 }

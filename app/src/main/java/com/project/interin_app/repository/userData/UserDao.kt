@@ -14,7 +14,7 @@ interface UserDao {
     suspend fun deleteUser(name: String)
 
     @Query("SELECT * FROM Records")
-    suspend fun getRecords() : Records
+    suspend fun getRecords() : List<Records>
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertRecord(slot: Records)
     @Query("DELETE FROM Records WHERE Doctor = :name")

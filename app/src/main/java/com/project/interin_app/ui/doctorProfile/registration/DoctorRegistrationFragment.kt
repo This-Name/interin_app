@@ -64,7 +64,7 @@ class DoctorRegistrationFragment : Fragment(R.layout.fragment_registration_docto
                 doctorRegistrationViewModel.insertUserRecord(
                     Records(
                         slot.ID,
-                        slot.BOOK_ID, slotId, "22", "qwf", "qwwq", "qwd"
+                        slot.BOOK_ID, slotId, appointmentInfo.get(3), appointmentInfo.get(2), "qwwq", "qwd"
                     )
                 )
                 val test: String = "fff"
