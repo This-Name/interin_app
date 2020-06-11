@@ -25,7 +25,7 @@ class UserEditRecordFragment : Fragment(R.layout.fragment_user_edit_record)  {
         val id = inputData?.get(1)
         val slot_id = inputData?.get(0)
         val doctor = inputData?.get(3)
-        view.findViestatuswById<Button>(R.id.fuer_delete_button).setOnClickListener {
+        view.findViewById<Button>(R.id.fuer_delete_button).setOnClickListener {
             viewLifecycleOwner.lifecycleScope.launch {
                 userEditRecordViewModel.deleteRecordAPI("{ID:\"$id\",SLOT_ID:\"$slot_id\"}")
                 userEditRecordViewModel.deleteRecordDB("$doctor")
