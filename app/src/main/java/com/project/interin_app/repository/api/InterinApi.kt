@@ -17,4 +17,6 @@ interface InterinApi {
     suspend fun getSlot(@Query("p_params") params: String) : Slots
     @GET("wix.registry_api?p_resource=APPOINTMENT&p_method=CREATE")
     suspend fun makeRecord(@Query("p_params") params: String) : Registration
+    @GET("wix.registry_api?p_resource=APPOINTMENT&p_method=DELETE")
+    suspend fun deleteRecord(@Query("p_params") params: String)
 }

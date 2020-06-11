@@ -41,7 +41,11 @@
     </fragment>
     <fragment
         android:id="@+id/user_RecordsFragment"
-        android:name="com.project.interin_app.ui.userData.userRecord.UserRecordsFragment"/>
+        android:name="com.project.interin_app.ui.userData.userRecord.UserRecordsFragment">
+        <action
+            android:id="@+id/action_user_RecordsFragment_to_user_Edit_RecordsFragment"
+            app:destination="@id/user_Edit_RecordsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/user_ProfileFragment"
         android:name="com.project.interin_app.ui.userData.userProfile.UserProfileFragment">
@@ -56,6 +60,14 @@
             android:id="@+id/action_user_Edit_ProfileFragment_to_user_ProfileFragment"
             app:destination="@id/user_ProfileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/user_Edit_RecordsFragment"
+        android:name="com.project.interin_app.ui.userData.userRecord.UserEditRecordFragment">
+        <action
+            android:id="@+id/action_user_Edit_RecordsFragment_to_user_RecordsFragment"
+            app:destination="@id/user_RecordsFragment" />
+    </fragment>
+
 
 
     <action
