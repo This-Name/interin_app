@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
@@ -30,7 +31,14 @@ class UserRecordsFragment : Fragment(R.layout.fragment_user_records) {
                     object :
                         UserRecordsAdapter.Listener {
                         override fun onItemClick(record: Records) {
-
+                            val bundle = Bundle()
+                            val data = ArrayList<String>() // можно помещать любые данные которые нужны дальше
+                            data.add(record._ID)
+                            data.add(record.BOOK_ID)
+                            data.add(record.Date)
+                            data.add(record.Doctor)
+                            bundle.putStringArrayList("infSlot", data)
+                            findNavController().navigate(R.id.action_user_RecordsFragment_to_user_Edit_RecordsFragment, bundle)
                         }
                     })
         }

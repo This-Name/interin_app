@@ -24,6 +24,7 @@ class DoctorsRepository {
     }
     suspend fun getSpecializations() = doctorApi.getAllDoctors().GROUPS
     suspend fun createRecord(params: String) = doctorApi.makeRecord(params)
+    suspend fun deleteRecord(params: String) = doctorApi.deleteRecord(params)
 
     suspend fun getUserData() = userDataBase.getUser()
     suspend fun updateUserData(user: User) = userDataBase.updateUser(user)
