@@ -18,7 +18,7 @@ class ListofDoctorsFragment : Fragment(R.layout.fragment_listofdoctors_doctors) 
         institutionData = arguments?.getStringArrayList("idAndNameOfInstitution")!!
         resourcesList = arguments?.getParcelableArrayList("ListOfResources")!!
 
-        activity?.title = institutionData[1]
+        activity?.title = "Врачи"
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.fld_rv_doctors)
         recyclerView.adapter =
