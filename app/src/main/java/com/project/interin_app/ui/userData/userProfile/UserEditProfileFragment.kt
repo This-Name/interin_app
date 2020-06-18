@@ -12,7 +12,10 @@ import com.project.interin_app.R
 class UserEditProfileFragment  : Fragment(R.layout.fragment_user_edit_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.title = "Профиль"
+
         val userEditProfileViewModel by viewModels<UserEditProfileViewModel>()
+
         view.findViewById<Button>(R.id.feup_save_button).setOnClickListener {
             userEditProfileViewModel.addUser(view.findViewById<EditText>(R.id.feup_patient_name).getText().toString(),
                 view.findViewById<EditText>(R.id.feup_patient_lastname).getText().toString(),

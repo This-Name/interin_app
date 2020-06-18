@@ -15,6 +15,8 @@ class UserEditRecordFragment : Fragment(R.layout.fragment_user_edit_record)  {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        activity?.title = "Запись"
+
         val userEditRecordViewModel by viewModels<UserEditRecordViewModel>()
         var inputData = arguments?.getStringArrayList("infSlot")
 

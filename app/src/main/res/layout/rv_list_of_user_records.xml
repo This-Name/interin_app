@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/rectangle_for_list"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="5dp">
     <TextView
         android:id="@+id/rv_records_name"
         android:layout_width="0dp"
@@ -15,6 +18,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:textSize="20sp"
+        android:textColor="#404040"
         app:layout_constraintBottom_toTopOf="@id/rv_records_date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,18 +35,11 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@id/rv_records_name_line"
+        android:textColor="#404040"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rv_records_name"
-        app:layout_constraintVertical_chainStyle="packed" />
-    <View
-        android:id="@+id/rv_records_name_line"
-        android:layout_width="match_parent"
-        android:layout_height="1sp"
-        app:layout_constraintTop_toBottomOf="@id/rv_records_date"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/cardview_dark_background"
         app:layout_constraintVertical_chainStyle="packed" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

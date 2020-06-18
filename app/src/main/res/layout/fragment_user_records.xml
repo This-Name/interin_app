@@ -4,28 +4,12 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/fud_records"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Активные записи:"
-        android:textSize="30sp"
-        android:padding="5dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <View
-        android:id="@+id/fud_line"
-        android:layout_width="match_parent"
-        android:layout_height="1sp"
-        app:layout_constraintTop_toBottomOf="@id/fud_records"
-        android:background="@color/cardview_dark_background"
-        app:layout_constraintVertical_chainStyle="packed" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fud_rv_user_records"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/fud_line"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

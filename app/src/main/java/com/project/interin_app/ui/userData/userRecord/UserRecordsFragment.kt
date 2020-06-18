@@ -16,6 +16,8 @@ class UserRecordsFragment : Fragment(R.layout.fragment_user_records) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        activity?.title = "Записи"
+
         val userRecordsViewModel by viewModels<UserRecordsViewModel>()
 
         viewLifecycleOwner.lifecycleScope.launch {

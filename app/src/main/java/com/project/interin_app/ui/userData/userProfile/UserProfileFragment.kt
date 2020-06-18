@@ -17,6 +17,8 @@ class UserProfileFragment  : Fragment(R.layout.fragment_user_profile) {
 
         val userProfileViewModel by viewModels<UserProfileViewModel>()
 
+        activity?.title = "Профиль"
+
         viewLifecycleOwner.lifecycleScope.launch {
             val content = userProfileViewModel.getUser()
             if(content != null) {

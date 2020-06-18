@@ -3,6 +3,7 @@ package com.project.interin_app.ui.listOfDoctors.institution
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.findFragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -23,7 +24,7 @@ class InstitutionFragment : Fragment(R.layout.fragment_institution) {
 
             //view.findViewById<TextView>(R.id.fin_institution).text = listtest.toString()
 
-            activity?.title = ""
+            activity?.title = "Учреждения"
             val recyclerView = view.findViewById<RecyclerView>(R.id.fin_rv_med_institution)
             recyclerView.layoutManager = LinearLayoutManager(activity)
             recyclerView.adapter =

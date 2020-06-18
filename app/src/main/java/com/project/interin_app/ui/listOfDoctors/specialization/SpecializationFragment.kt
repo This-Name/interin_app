@@ -19,7 +19,7 @@ class SpecializationFragment : Fragment(R.layout.fragment__listofdoctors_special
 
         inputData = arguments?.getStringArrayList("idAndNameOfInstitution")!! // получаю все с прошлого фрагмента
 
-        activity?.title = inputData[1]
+        activity?.title = "Специальности"
         val specializationViewModel by viewModels<SpecializationViewModel>()
         val recyclerView: RecyclerView = view.findViewById(R.id.fld_rv_doctors_specialization)
         viewLifecycleOwner.lifecycleScope.launch {

@@ -1,5 +1,7 @@
 package com.project.interin_app.ui
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation.findNavController
@@ -29,6 +31,5 @@ class MainActivity : AppCompatActivity(R.layout.activity_main){
                 else -> false
             }
         }
-
     }
 }
