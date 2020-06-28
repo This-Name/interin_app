@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
+import com.project.interin_app.repository.slotDoctorsAppointment.ROWS
 
-class DoctorTimeAdapter(var values: List<String>, val itemClick: Listener): RecyclerView.Adapter<DoctorTimeAdapter.ViewHolder>(){
+class DoctorTimeAdapter(var values: List<ROWS>, val itemClick: Listener): RecyclerView.Adapter<DoctorTimeAdapter.ViewHolder>(){
 
     override fun getItemCount() = values.size
 
@@ -20,10 +21,15 @@ class DoctorTimeAdapter(var values: List<String>, val itemClick: Listener): Recy
         holder.bind(values[position])
     }
 
+    fun loadSlots(data: List<Any>){
+        values = data as List<ROWS>
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(text: String) {
+        fun bind(text: ROWS) {
             val textViewName = itemView.findViewById<TextView>(R.id.rv_time_doctor)
-            textViewName.text = text
+            textViewName.text = text.TIME_SHOW.toString()
             itemView.setOnClickListener{
                 if(adapterPosition != RecyclerView.NO_POSITION){
                     itemClick.onItemClick(values[adapterPosition])
@@ -32,6 +38,6 @@ class DoctorTimeAdapter(var values: List<String>, val itemClick: Listener): Recy
         }
     }
     interface Listener{
-        fun onItemClick(time: String)
+        fun onItemClick(time: ROWS)
     }
 }

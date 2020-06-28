@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    app:startDestination="@id/med_institutionFragment">
+
+    <fragment
+        android:id="@+id/med_institutionFragment"
+        android:name="com.project.interin_app.ui.listOfDoctors.institution.InstitutionFragment">
+        <action
+            android:id="@+id/action_med_institution_to_specialization_doctor"
+            app:destination="@id/specialization_doctorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/specialization_doctorFragment"
+        android:name="com.project.interin_app.ui.listOfDoctors.specialization.SpecializationFragment">
+        <action
+            android:id="@+id/action_specialization_doctor_to_list_of_doctors"
+            app:destination="@id/list_of_doctorsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/list_of_doctorsFragment"
+        android:name="com.project.interin_app.ui.listOfDoctors.doctors.ListofDoctorsFragment" >
+        <action
+            android:id="@+id/action_list_of_doctorsFragment_to_doctorFragment"
+            app:destination="@id/doctorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorFragment"
+        android:name="com.project.interin_app.ui.doctorProfile.profile.DoctorFragment">
+        <action
+            android:id="@+id/action_doctorFragment_to_doctor_RegistrationFragment"
+            app:destination="@id/doctor_RegistrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctor_RegistrationFragment"
+        android:name="com.project.interin_app.ui.doctorProfile.registration.DoctorRegistrationFragment">
+        <action
+            android:id="@+id/action_doctor_RegistrationFragment_to_user_RecordsFragment"
+            app:destination="@id/user_RecordsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/user_RecordsFragment"
+        android:name="com.project.interin_app.ui.userData.userRecord.UserRecordsFragment">
+        <action
+            android:id="@+id/action_user_RecordsFragment_to_user_Edit_RecordsFragment"
+            app:destination="@id/user_Edit_RecordsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/user_ProfileFragment"
+        android:name="com.project.interin_app.ui.userData.userProfile.UserProfileFragment">
+        <action
+            android:id="@+id/action_user_ProfileFragment_to_user_Edit_ProfileFragment"
+            app:destination="@id/user_Edit_ProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/user_Edit_ProfileFragment"
+        android:name="com.project.interin_app.ui.userData.userProfile.UserEditProfileFragment">
+        <action
+            android:id="@+id/action_user_Edit_ProfileFragment_to_user_ProfileFragment"
+            app:destination="@id/user_ProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/user_Edit_RecordsFragment"
+        android:name="com.project.interin_app.ui.userData.userRecord.UserEditRecordFragment">
+        <action
+            android:id="@+id/action_user_Edit_RecordsFragment_to_user_RecordsFragment"
+            app:destination="@id/user_RecordsFragment" />
+    </fragment>
+
+
+
+    <action
+        android:id="@+id/action_global_user_ProfileFragment"
+        app:destination="@id/user_ProfileFragment"
+        app:popUpTo="@id/main"/>
+    <action
+        android:id="@+id/action_global_med_institutionFragment"
+        app:destination="@id/med_institutionFragment"
+        app:popUpTo="@id/main"/>
+    <action
+        android:id="@+id/action_global_user_RecordsFragment"
+        app:destination="@id/user_RecordsFragment"
+        app:popUpTo="@id/main"/>
+</navigation>
