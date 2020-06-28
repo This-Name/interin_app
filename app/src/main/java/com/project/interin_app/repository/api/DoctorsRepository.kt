@@ -7,7 +7,7 @@ import com.project.interin_app.repository.userData.User
 
 class DoctorsRepository {
 
-    private val doctorApi = ApiConnect().getConnect()
+    private val doctorApi = MainApplication.interinApi
     private val userDataBase = MainApplication.database.UserDao()
 
 

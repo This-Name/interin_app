@@ -1,10 +1,5 @@
 <resources>
-    <string name="app_name">interinApp</string>
-    <string name="search_a_doctor">Search a doctor</string>
-    <string name="search">Search</string>
-    <string name="full_name_doctor_or_category">Doctor`s full name/category</string>
-    <string name="date_and_time_selection">Date and time selection</string>
-    <string name="doctor_registration">Doctor`s appointment</string>
+    <string name="app_name">InterinApp</string>
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
     <string name="date_of_birth">Date of birth</string>
@@ -13,7 +8,12 @@
     <string name="polis">Polis</string>
     <string name="comment">Comment</string>
     <string name="sign_up">Sign up</string>
-    <string name="completed_sign_up">Done</string>
+    <string name="edit">Edit</string>
+    <string name="data">Date</string>
+    <string name="record_data">Record data:</string>
+    <string name="cancel_appointment">Cancel appointment</string>
+    <string name="save">Save</string>
+    <string name="your_data">Your data:</string>
     <string name="specialization">Specialization</string>
 
 </resources>

@@ -39,6 +39,8 @@ class UserRecordsFragment : Fragment(R.layout.fragment_user_records) {
                             data.add(record.BOOK_ID)
                             data.add(record.Date)
                             data.add(record.Doctor)
+                            data.add(record.Time)
+                            data.add(record.Specialization)
                             bundle.putStringArrayList("infSlot", data)
                             findNavController().navigate(R.id.action_user_RecordsFragment_to_user_Edit_RecordsFragment, bundle)
                         }

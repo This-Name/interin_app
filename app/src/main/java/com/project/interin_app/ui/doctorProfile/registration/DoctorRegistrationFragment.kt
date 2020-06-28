@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -13,7 +14,6 @@ import com.project.interin_app.repository.userData.Records
 import com.project.interin_app.repository.userData.User
 import com.project.interin_app.repository.userRecord.Registration
 import kotlinx.coroutines.launch
-import java.nio.charset.Charset
 
 class DoctorRegistrationFragment : Fragment(R.layout.fragment_registration_doctor) {
     // slot ID
@@ -27,6 +27,11 @@ class DoctorRegistrationFragment : Fragment(R.layout.fragment_registration_docto
         appointmentInfo = arguments?.getStringArrayList("appointmentInfo")!!
 
         activity?.title = "Запись"
+
+        view.findViewById<TextView>(R.id.frgd_record2).setText(appointmentInfo.get(0))
+        view.findViewById<TextView>(R.id.frgd_record3).setText(appointmentInfo.get(1))
+        view.findViewById<TextView>(R.id.frgd_record4).setText(appointmentInfo.get(2))
+        view.findViewById<TextView>(R.id.frgd_record5).setText(appointmentInfo.get(3))
 
         viewLifecycleOwner.lifecycleScope.launch {
             val content = doctorRegistrationViewModel.getUser()
@@ -63,7 +68,7 @@ class DoctorRegistrationFragment : Fragment(R.layout.fragment_registration_docto
                 doctorRegistrationViewModel.insertUserRecord(
                     Records(
                         slot.ID,
-                        slot.BOOK_ID, slotId, appointmentInfo.get(3), appointmentInfo.get(2), "qwwq", "qwd"
+                        slot.BOOK_ID, slotId, appointmentInfo.get(3), appointmentInfo.get(2), appointmentInfo.get(1), appointmentInfo.get(0)
                     )
                 )
                 doctorRegistrationViewModel.updateUser(

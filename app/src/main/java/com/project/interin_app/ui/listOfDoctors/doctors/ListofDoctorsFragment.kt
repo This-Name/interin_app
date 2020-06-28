@@ -14,13 +14,13 @@ class ListofDoctorsFragment : Fragment(R.layout.fragment_listofdoctors_doctors) 
     private lateinit var resourcesList: List<RESOURCES>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        institutionData = arguments?.getStringArrayList("idAndNameOfInstitution")!!
-        resourcesList = arguments?.getParcelableArrayList("ListOfResources")!!
-
         activity?.title = "Врачи"
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.fld_rv_doctors)
+        institutionData = arguments?.getStringArrayList("idAndNameOfInstitution")!!
+        resourcesList = arguments?.getParcelableArrayList("ListOfResources")!!
+
+        recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter =
             DoctorAdapter(
                 resourcesList,
@@ -33,6 +33,5 @@ class ListofDoctorsFragment : Fragment(R.layout.fragment_listofdoctors_doctors) 
                         findNavController().navigate(R.id.action_list_of_doctorsFragment_to_doctorFragment, bundle)
                     }
                 })
-        recyclerView.layoutManager = LinearLayoutManager(activity)
     }
 }

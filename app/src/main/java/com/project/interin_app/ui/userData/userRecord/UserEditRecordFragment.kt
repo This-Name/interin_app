@@ -20,8 +20,10 @@ class UserEditRecordFragment : Fragment(R.layout.fragment_user_edit_record)  {
         val userEditRecordViewModel by viewModels<UserEditRecordViewModel>()
         var inputData = arguments?.getStringArrayList("infSlot")
 
-        view.findViewById<TextView>(R.id.fuer_doctor).setText(inputData?.get(3))
-        view.findViewById<TextView>(R.id.fuer_date).setText(inputData?.get(2))
+        view.findViewById<TextView>(R.id.fuer_record2).setText(inputData?.get(4))
+        view.findViewById<TextView>(R.id.fuer_record3).setText(inputData?.get(5))
+        view.findViewById<TextView>(R.id.fuer_record4).setText(inputData?.get(3))
+        view.findViewById<TextView>(R.id.fuer_record5).setText(inputData?.get(2))
 
 
         val id = inputData?.get(1)

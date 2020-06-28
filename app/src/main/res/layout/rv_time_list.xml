@@ -20,7 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        android:text="11:30"
         android:gravity="center"
         android:background="@drawable/rectangle_for_list" />
 

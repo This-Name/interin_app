@@ -16,12 +16,13 @@ class SpecializationFragment : Fragment(R.layout.fragment__listofdoctors_special
     private lateinit var inputData: ArrayList<String> // здесь лежит все то, что передано с прошлого фрагмента
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.title = "Специальности"
 
         inputData = arguments?.getStringArrayList("idAndNameOfInstitution")!! // получаю все с прошлого фрагмента
 
-        activity?.title = "Специальности"
         val specializationViewModel by viewModels<SpecializationViewModel>()
         val recyclerView: RecyclerView = view.findViewById(R.id.fld_rv_doctors_specialization)
+
         viewLifecycleOwner.lifecycleScope.launch {
             recyclerView.layoutManager = LinearLayoutManager(activity)
             recyclerView.adapter =
