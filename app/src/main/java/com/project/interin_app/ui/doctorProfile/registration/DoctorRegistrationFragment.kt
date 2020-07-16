@@ -24,6 +24,7 @@ class DoctorRegistrationFragment : Fragment(R.layout.fragment_registration_docto
     lateinit var slot: Registration
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val doctorRegistrationViewModel by viewModels<DoctorRegistrationViewModel>()
+
         slotId = arguments?.getString("slotId")!!
         appointmentInfo = arguments?.getStringArrayList("appointmentInfo")!!
         activity?.title = R.string.record.toString()
