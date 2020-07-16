@@ -26,7 +26,6 @@ class DoctorRegistrationFragment : Fragment(R.layout.fragment_registration_docto
         val doctorRegistrationViewModel by viewModels<DoctorRegistrationViewModel>()
         slotId = arguments?.getString("slotId")!!
         appointmentInfo = arguments?.getStringArrayList("appointmentInfo")!!
-
         activity?.title = R.string.record.toString()
 
         view.findViewById<TextView>(R.id.frgd_record2).text = appointmentInfo[0]
