@@ -16,7 +16,7 @@ class SpecializationFragment : Fragment(R.layout.fragment__listofdoctors_special
     private lateinit var inputData: ArrayList<String> // здесь лежит все то, что передано с прошлого фрагмента
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = "Специальности"
+        activity?.title = R.string.specializations.toString()
 
         inputData =
             arguments?.getStringArrayList("idAndNameOfInstitution")!! // получаю все с прошлого фрагмента

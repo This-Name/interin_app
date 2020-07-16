@@ -13,7 +13,7 @@ class MainApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
-        database = Room.databaseBuilder(this, UserDataBase::class.java,"database").build()
+        database = Room.databaseBuilder(this, UserDataBase::class.java, "database").build()
         interinApi = Retrofit.Builder()
             .baseUrl("https://services.interin.ru/")
             .client(OkHttpClient.Builder().build())
@@ -21,6 +21,7 @@ class MainApplication : Application() {
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build().create(InterinApi::class.java)
     }
+
     companion object {
         lateinit var instance: Application
         lateinit var database: UserDataBase

@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 class InstitutionFragment : Fragment(R.layout.fragment_institution) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = "Учреждения"
+        activity?.title = R.string.institutions.toString()
 
         val institutionViewModel by viewModels<InstitutionViewModel>()
         val recyclerView = view.findViewById<RecyclerView>(R.id.fin_rv_med_institution)

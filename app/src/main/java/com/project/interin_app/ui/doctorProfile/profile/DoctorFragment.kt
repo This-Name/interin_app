@@ -26,7 +26,7 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
         institutionData = arguments?.getStringArrayList("idAndNameOfInstitution")!!
         resourceInfo = arguments?.getString("resourceId")!!
 
-        activity?.title = "Дата и время"
+        activity?.title = R.string.date_and_time.toString()
 
         val calendar: CalendarView = view.findViewById(R.id.ad_set_date_calendar)
         var currentDate = ""

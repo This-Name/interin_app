@@ -16,7 +16,7 @@ class UserRecordsFragment : Fragment(R.layout.fragment_user_records) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        activity?.title = "Записи"
+        activity?.title = R.string.records.toString()
 
         val userRecordsViewModel by viewModels<UserRecordsViewModel>()
 

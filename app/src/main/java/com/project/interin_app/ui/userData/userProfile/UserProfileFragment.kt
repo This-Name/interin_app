@@ -17,17 +17,17 @@ class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
 
         val userProfileViewModel by viewModels<UserProfileViewModel>()
 
-        activity?.title = "Профиль"
+        activity?.title = R.string.profile.toString()
 
         viewLifecycleOwner.lifecycleScope.launch {
             val content = userProfileViewModel.getUser()
             if (content != null) {
-                view.findViewById<TextView>(R.id.fup_firstname).setText(content.FirstName)
-                view.findViewById<TextView>(R.id.fup_lastname).setText(content.LastName)
-                view.findViewById<TextView>(R.id.fup_birthday).setText(content.Birthday)
-                view.findViewById<TextView>(R.id.fup_phone).setText(content.Phone)
-                view.findViewById<TextView>(R.id.fup_email).setText(content.Email)
-                view.findViewById<TextView>(R.id.fup_policy).setText(content.Policy)
+                view.findViewById<TextView>(R.id.fup_firstname).text = content.FirstName
+                view.findViewById<TextView>(R.id.fup_lastname).text = content.LastName
+                view.findViewById<TextView>(R.id.fup_birthday).text = content.Birthday
+                view.findViewById<TextView>(R.id.fup_phone).text = content.Phone
+                view.findViewById<TextView>(R.id.fup_email).text = content.Email
+                view.findViewById<TextView>(R.id.fup_policy).text = content.Policy
             }
         }
         view.findViewById<Button>(R.id.fup_edit_button).setOnClickListener {

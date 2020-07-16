@@ -1,19 +1,26 @@
 <resources>
     <string name="app_name">InterinApp</string>
-    <string name="first_name">First name</string>
-    <string name="last_name">Last name</string>
-    <string name="date_of_birth">Date of birth</string>
-    <string name="telephone">Telephone</string>
-    <string name="email">Email</string>
-    <string name="polis">Polis</string>
-    <string name="comment">Comment</string>
-    <string name="sign_up">Sign up</string>
-    <string name="edit">Edit</string>
-    <string name="data">Date</string>
-    <string name="record_data">Record data:</string>
     <string name="cancel_appointment">Cancel appointment</string>
+    <string name="comment">Comment</string>
+    <string name="data">Date</string>
+    <string name="date_and_time">The date and time</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="doctors">Doctors</string>
+    <string name="edit">Edit</string>
+    <string name="email">Email</string>
+    <string name="first_name">First name</string>
+    <string name="institutions">Institutions</string>
+    <string name="last_name">Last name</string>
+    <string name="polis">Polis</string>
+    <string name="profile">Profile</string>
+    <string name="record">Record</string>
+    <string name="record_data">Record data:</string>
+    <string name="records">Records</string>
     <string name="save">Save</string>
-    <string name="your_data">Your data:</string>
+    <string name="sign_up">Sign up</string>
     <string name="specialization">Specialization</string>
+    <string name="specializations">Specializations</string>
+    <string name="telephone">Telephone</string>
+    <string name="your_data">Your data:</string>
 
 </resources>
