@@ -22,7 +22,7 @@ class UserRecordsFragment : Fragment(R.layout.fragment_user_records) {
 
         viewLifecycleOwner.lifecycleScope.launch {
             var content = userRecordsViewModel.getRecords()
-            if(content == null){
+            if (content == null) {
                 content = mutableListOf()
             }
             val recyclerView = view.findViewById<RecyclerView>(R.id.fud_rv_user_records)
@@ -34,7 +34,8 @@ class UserRecordsFragment : Fragment(R.layout.fragment_user_records) {
                         UserRecordsAdapter.Listener {
                         override fun onItemClick(record: Records) {
                             val bundle = Bundle()
-                            val data = ArrayList<String>() // можно помещать любые данные которые нужны дальше
+                            val data =
+                                ArrayList<String>() // можно помещать любые данные которые нужны дальше
                             data.add(record._ID)
                             data.add(record.BOOK_ID)
                             data.add(record.Date)
@@ -42,7 +43,10 @@ class UserRecordsFragment : Fragment(R.layout.fragment_user_records) {
                             data.add(record.Time)
                             data.add(record.Specialization)
                             bundle.putStringArrayList("infSlot", data)
-                            findNavController().navigate(R.id.action_user_RecordsFragment_to_user_Edit_RecordsFragment, bundle)
+                            findNavController().navigate(
+                                R.id.action_user_RecordsFragment_to_user_Edit_RecordsFragment,
+                                bundle
+                            )
                         }
                     })
         }

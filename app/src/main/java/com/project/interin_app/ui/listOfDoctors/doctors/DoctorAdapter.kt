@@ -13,12 +13,12 @@ class DoctorAdapter(var items: List<RESOURCES>, val itemClick: Listener) :
     RecyclerView.Adapter<DoctorAdapter.DoctorViewHolder>() {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : DoctorViewHolder {
-            val view =  LayoutInflater.from(parent.context).inflate(
-                R.layout.rv_list_of_doctors,
-                parent,
-                false
-            )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DoctorViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(
+            R.layout.rv_list_of_doctors,
+            parent,
+            false
+        )
 
         return DoctorViewHolder(view)
     }
@@ -35,19 +35,19 @@ class DoctorAdapter(var items: List<RESOURCES>, val itemClick: Listener) :
     inner class DoctorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(doctor: RESOURCES) {
             val textViewName = itemView.findViewById(R.id.rv_name_doctor) as TextView
-            val textViewAddress  = itemView.findViewById(R.id.rv_category_doctor) as TextView
+            val textViewAddress = itemView.findViewById(R.id.rv_category_doctor) as TextView
             textViewName.text = doctor.NAME
             textViewAddress.text = doctor.GROUP_NAME
 
-            itemView.setOnClickListener{
-                if(adapterPosition != RecyclerView.NO_POSITION){
+            itemView.setOnClickListener {
+                if (adapterPosition != RecyclerView.NO_POSITION) {
                     itemClick.onItemClick(items[adapterPosition])
                 }
             }
         }
     }
 
-    interface Listener{
+    interface Listener {
         fun onItemClick(doctor: RESOURCES)
     }
 }

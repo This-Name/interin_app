@@ -5,6 +5,6 @@ import kotlinx.serialization.Serializable
 
 
 data class ListMedInstitution(
-    @SerialName ("ROWS")
-    val medInstitution : List<MedInstitution>
+    @SerialName("ROWS")
+    val medInstitution: List<MedInstitution>
 )

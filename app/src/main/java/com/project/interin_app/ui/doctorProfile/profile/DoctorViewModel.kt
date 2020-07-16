@@ -4,7 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import com.project.interin_app.repository.api.DoctorsRepository
 
-class DoctorViewModel(application: Application): AndroidViewModel(application) {
+class DoctorViewModel(application: Application) : AndroidViewModel(application) {
 
-    suspend fun getListFreeSlots(params: String): List<Any> = DoctorsRepository().getListSlot(params)
+    suspend fun getListFreeSlots(params: String): List<Any> =
+        DoctorsRepository().getListSlot(params)
 }

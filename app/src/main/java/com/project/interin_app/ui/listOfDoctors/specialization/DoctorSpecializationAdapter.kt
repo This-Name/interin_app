@@ -11,8 +11,8 @@ import com.project.interin_app.repository.doctors.GROUPS
 class DoctorSpecializationAdapter(var items: List<GROUPS>, val itemClick: Listener) :
     RecyclerView.Adapter<DoctorSpecializationAdapter.SpecializationViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : SpecializationViewHolder {
-        val view =  LayoutInflater.from(parent.context).inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpecializationViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(
             R.layout.rv_list_of_specializations,
             parent,
             false
@@ -29,20 +29,19 @@ class DoctorSpecializationAdapter(var items: List<GROUPS>, val itemClick: Listen
         holder.bind(items[position])
     }
 
-
     inner class SpecializationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(group: GROUPS) {
             val textViewName = itemView.findViewById<TextView>(R.id.rv_specialization_doctor)
             textViewName.text = group.NAME
-            itemView.setOnClickListener{
-                if(adapterPosition != RecyclerView.NO_POSITION){
+            itemView.setOnClickListener {
+                if (adapterPosition != RecyclerView.NO_POSITION) {
                     itemClick.onItemClick(items[adapterPosition])
                 }
             }
         }
     }
 
-    interface Listener{
+    interface Listener {
         fun onItemClick(specialization: GROUPS)
     }
 }

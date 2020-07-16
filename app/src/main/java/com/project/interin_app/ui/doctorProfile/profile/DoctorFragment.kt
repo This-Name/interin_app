@@ -48,29 +48,37 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
                         val bundle = Bundle()
                         bundle.putString("slotId", time.ID)
                         bundle.putStringArrayList("appointmentInfo", appointmentInfo)
-                        findNavController().navigate(R.id.action_doctorFragment_to_doctor_RegistrationFragment, bundle)
+                        findNavController().navigate(
+                            R.id.action_doctorFragment_to_doctor_RegistrationFragment,
+                            bundle
+                        )
                     }
 
                 })
         recyclerView.adapter = adapter
 
-        if(currentDate == "")
-            loadSlots(SimpleDateFormat("dd.MM.yyyy").format(calendar.date), institutionData[0], resourceInfo,adapter)
+        if (currentDate == "")
+            loadSlots(
+                SimpleDateFormat("dd.MM.yyyy").format(calendar.date),
+                institutionData[0],
+                resourceInfo,
+                adapter
+            )
 
         calendar.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            val formattedDay = if(dayOfMonth < 10)
+            val formattedDay = if (dayOfMonth < 10)
                 "0" + (dayOfMonth).toString()
             else
                 (dayOfMonth).toString()
 
-            val formattedMonth = if(month + 1 < 10)
+            val formattedMonth = if (month + 1 < 10)
                 "0" + (month + 1).toString()
             else
                 (month + 1).toString()
 
             currentDate = "$formattedDay.$formattedMonth.$year"
 
-            loadSlots(currentDate, institutionData[0], resourceInfo,adapter)
+            loadSlots(currentDate, institutionData[0], resourceInfo, adapter)
         }
     }
 
@@ -79,15 +87,15 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
         scheduleId: String,
         resource_id: String,
         adapter: DoctorTimeAdapter
-    ){
+    ) {
         viewLifecycleOwner.lifecycleScope.launch {
             //Schedule = 7FA39CC10D36087CE0530100007F1682 основное
             //Resource = 7FA60CCEEFE36563E0530100007FA9EB хирург - сидоров
-            slotList = doctorViewModel.getListFreeSlots("{SCHEDULE_ID:\"$scheduleId\"," +
-                    "RESOURCE_ID:\"$resource_id\",BDATE:\"$currentDate\",EDATE:\"$currentDate\"}")
+            slotList = doctorViewModel.getListFreeSlots(
+                "{SCHEDULE_ID:\"$scheduleId\"," +
+                        "RESOURCE_ID:\"$resource_id\",BDATE:\"$currentDate\",EDATE:\"$currentDate\"}"
+            )
             adapter.loadSlots(slotList)
         }
     }
-
-
 }

@@ -18,6 +18,7 @@ import kotlinx.coroutines.launch
 class DoctorRegistrationFragment : Fragment(R.layout.fragment_registration_doctor) {
     // slot ID
     lateinit var slotId: String
+
     // информация о записи по порядку: место, специальность, врач, датавремя
     lateinit var appointmentInfo: ArrayList<String>
     lateinit var slot: Registration
@@ -36,7 +37,7 @@ class DoctorRegistrationFragment : Fragment(R.layout.fragment_registration_docto
         viewLifecycleOwner.lifecycleScope.launch {
             val content = doctorRegistrationViewModel.getUser()
 
-            if(content != null) {
+            if (content != null) {
                 view.findViewById<EditText>(R.id.frgd_patient_name).setText(content.FirstName)
                 view.findViewById<EditText>(R.id.frgd_patient_lastname).setText(content.LastName)
                 view.findViewById<EditText>(R.id.frgd_patient_birthday).setText(content.Birthday)
@@ -61,14 +62,21 @@ class DoctorRegistrationFragment : Fragment(R.layout.fragment_registration_docto
                     view.findViewById<EditText>(R.id.frgd_patient_policy).getText().toString()
                 val comments =
                     view.findViewById<EditText>(R.id.frgd_patient_comments).getText().toString()
-                
-                slot = doctorRegistrationViewModel.createRecord("{SLOT_ID:\"$slotId\",PATIENT_NAME:\"$name\",PATIENT_LASTNAME:\"$lastmane\"," +
-                        "PATIENT_BIRTHDAY:\"$birthday\",PATIENT_PHONE:\"$phone\",PATIENT_EMAIL:\"$email\"," +
-                        "PATIENT_POLICY:\"$policy\",COMMENTS:\"$comments\"}")
+
+                slot = doctorRegistrationViewModel.createRecord(
+                    "{SLOT_ID:\"$slotId\",PATIENT_NAME:\"$name\",PATIENT_LASTNAME:\"$lastmane\"," +
+                            "PATIENT_BIRTHDAY:\"$birthday\",PATIENT_PHONE:\"$phone\",PATIENT_EMAIL:\"$email\"," +
+                            "PATIENT_POLICY:\"$policy\",COMMENTS:\"$comments\"}"
+                )
                 doctorRegistrationViewModel.insertUserRecord(
                     Records(
                         slot.ID,
-                        slot.BOOK_ID, slotId, appointmentInfo.get(3), appointmentInfo.get(2), appointmentInfo.get(1), appointmentInfo.get(0)
+                        slot.BOOK_ID,
+                        slotId,
+                        appointmentInfo.get(3),
+                        appointmentInfo.get(2),
+                        appointmentInfo.get(1),
+                        appointmentInfo.get(0)
                     )
                 )
                 doctorRegistrationViewModel.updateUser(

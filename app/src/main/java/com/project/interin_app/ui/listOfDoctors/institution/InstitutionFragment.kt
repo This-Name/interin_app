@@ -29,11 +29,18 @@ class InstitutionFragment : Fragment(R.layout.fragment_institution) {
                         InstitutionAdapter.Listener {
                         override fun onItemClick(institution: ROWS) {
                             val bundle = Bundle()
-                            val data = ArrayList<String>() // можно помещать любые данные которые нужны дальше
+                            val data =
+                                ArrayList<String>() // можно помещать любые данные которые нужны дальше
                             data.add(institution._ID)
                             data.add(institution.NAME)
-                            bundle.putStringArrayList("idAndNameOfInstitution", data) // передаю id и name в следующий фрагмент
-                            findNavController().navigate(R.id.action_med_institution_to_specialization_doctor, bundle)
+                            bundle.putStringArrayList(
+                                "idAndNameOfInstitution",
+                                data
+                            ) // передаю id и name в следующий фрагмент
+                            findNavController().navigate(
+                                R.id.action_med_institution_to_specialization_doctor,
+                                bundle
+                            )
                         }
                     })
         }

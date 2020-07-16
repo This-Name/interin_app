@@ -36,3 +36,4 @@ data class MedInstitution(
     @SerialName("_TYPE")
     val _TYPE: String = ""
 )
+

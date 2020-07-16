@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.project.interin_app.R
 import kotlinx.coroutines.launch
 
-class UserEditRecordFragment : Fragment(R.layout.fragment_user_edit_record)  {
+class UserEditRecordFragment : Fragment(R.layout.fragment_user_edit_record) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

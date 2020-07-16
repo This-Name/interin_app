@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.project.interin_app.R
 import kotlinx.coroutines.launch
 
-class UserProfileFragment  : Fragment(R.layout.fragment_user_profile) {
+class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -21,7 +21,7 @@ class UserProfileFragment  : Fragment(R.layout.fragment_user_profile) {
 
         viewLifecycleOwner.lifecycleScope.launch {
             val content = userProfileViewModel.getUser()
-            if(content != null) {
+            if (content != null) {
                 view.findViewById<TextView>(R.id.fup_firstname).setText(content.FirstName)
                 view.findViewById<TextView>(R.id.fup_lastname).setText(content.LastName)
                 view.findViewById<TextView>(R.id.fup_birthday).setText(content.Birthday)

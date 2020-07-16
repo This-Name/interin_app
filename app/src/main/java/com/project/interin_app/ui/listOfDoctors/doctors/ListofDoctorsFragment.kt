@@ -30,7 +30,10 @@ class ListofDoctorsFragment : Fragment(R.layout.fragment_listofdoctors_doctors) 
                         val bundle = Bundle()
                         bundle.putStringArrayList("idAndNameOfInstitution", institutionData)
                         bundle.putString("resourceId", doctor._ID)
-                        findNavController().navigate(R.id.action_list_of_doctorsFragment_to_doctorFragment, bundle)
+                        findNavController().navigate(
+                            R.id.action_list_of_doctorsFragment_to_doctorFragment,
+                            bundle
+                        )
                     }
                 })
     }

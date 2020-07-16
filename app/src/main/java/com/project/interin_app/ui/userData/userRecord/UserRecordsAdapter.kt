@@ -11,8 +11,8 @@ import com.project.interin_app.repository.userData.Records
 class UserRecordsAdapter(var items: List<Records>, val itemClick: Listener) :
     RecyclerView.Adapter<UserRecordsAdapter.RecordsViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : RecordsViewHolder {
-        val view =  LayoutInflater.from(parent.context).inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecordsViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(
             R.layout.rv_list_of_user_records,
             parent,
             false
@@ -34,15 +34,15 @@ class UserRecordsAdapter(var items: List<Records>, val itemClick: Listener) :
             val textViewDate = itemView.findViewById(R.id.rv_records_date) as TextView
             textViewName.text = record.Doctor
             textViewDate.text = record.Date
-            itemView.setOnClickListener{
-                if(adapterPosition != RecyclerView.NO_POSITION){
+            itemView.setOnClickListener {
+                if (adapterPosition != RecyclerView.NO_POSITION) {
                     itemClick.onItemClick(items[adapterPosition])
                 }
             }
         }
     }
 
-    interface Listener{
+    interface Listener {
         fun onItemClick(record: Records)
     }
 }

@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.project.interin_app.R
 
-class UserEditProfileFragment  : Fragment(R.layout.fragment_user_edit_profile) {
+class UserEditProfileFragment : Fragment(R.layout.fragment_user_edit_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.title = "Профиль"
@@ -17,12 +17,14 @@ class UserEditProfileFragment  : Fragment(R.layout.fragment_user_edit_profile) {
         val userEditProfileViewModel by viewModels<UserEditProfileViewModel>()
 
         view.findViewById<Button>(R.id.feup_save_button).setOnClickListener {
-            userEditProfileViewModel.addUser(view.findViewById<EditText>(R.id.feup_patient_name).getText().toString(),
+            userEditProfileViewModel.addUser(
+                view.findViewById<EditText>(R.id.feup_patient_name).getText().toString(),
                 view.findViewById<EditText>(R.id.feup_patient_lastname).getText().toString(),
                 view.findViewById<EditText>(R.id.feup_patient_birthday).getText().toString(),
                 view.findViewById<EditText>(R.id.feup_patient_phone).getText().toString(),
                 view.findViewById<EditText>(R.id.feup_patient_email).getText().toString(),
-                view.findViewById<EditText>(R.id.feup_patient_policy).getText().toString())
+                view.findViewById<EditText>(R.id.feup_patient_policy).getText().toString()
+            )
             findNavController().navigate(R.id.action_user_Edit_ProfileFragment_to_user_ProfileFragment)
         }
     }
