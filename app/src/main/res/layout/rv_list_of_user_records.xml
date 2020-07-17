@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/rectangle_for_list"
     android:layout_marginHorizontal="10dp"
-    android:layout_marginVertical="5dp">
+    android:layout_marginVertical="5dp"
+    android:background="@drawable/rectangle_for_list">
+
     <TextView
         android:id="@+id/rv_records_name"
         android:layout_width="0dp"
@@ -14,16 +15,17 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:paddingStart="15dp"
-        android:paddingEnd="15dp"
         android:paddingTop="5dp"
+        android:paddingEnd="15dp"
         android:paddingBottom="5dp"
-        android:textSize="20sp"
         android:textColor="#404040"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/rv_records_date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
+
     <TextView
         android:id="@+id/rv_records_date"
         android:layout_width="0dp"
@@ -31,11 +33,11 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:paddingStart="15dp"
-        android:paddingEnd="15dp"
         android:paddingTop="5dp"
+        android:paddingEnd="15dp"
         android:paddingBottom="5dp"
-        android:textSize="20sp"
         android:textColor="#404040"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

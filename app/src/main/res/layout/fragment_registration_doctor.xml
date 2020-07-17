@@ -1,182 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/white_rectangle_for_other_elements">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/frgd_record1"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/record_data"
-        android:textSize="15sp"
-        android:padding="3dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/frgd_record2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <TextView
-        android:id="@+id/frgd_record2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/data"
-        android:textSize="15sp"
-        android:padding="3dp"
-        app:layout_constraintTop_toBottomOf="@id/frgd_record1"
-        app:layout_constraintBottom_toTopOf="@id/frgd_record3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <TextView
-        android:id="@+id/frgd_record3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/data"
-        android:textSize="15sp"
-        android:padding="3dp"
-        app:layout_constraintTop_toBottomOf="@id/frgd_record2"
-        app:layout_constraintBottom_toTopOf="@id/frgd_record4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <TextView
-        android:id="@+id/frgd_record4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/data"
-        android:textSize="15sp"
-        android:padding="3dp"
-        app:layout_constraintTop_toBottomOf="@id/frgd_record3"
-        app:layout_constraintBottom_toTopOf="@id/frgd_record5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <TextView
-        android:id="@+id/frgd_record5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/data"
-        android:textSize="15sp"
-        android:padding="3dp"
-        app:layout_constraintTop_toBottomOf="@id/frgd_record4"
-        app:layout_constraintBottom_toTopOf="@id/frgd_record6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:background="@drawable/white_rectangle_for_other_elements"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/frgd_record6"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/your_data"
-        android:textSize="15sp"
-        android:padding="3dp"
-        app:layout_constraintTop_toBottomOf="@id/frgd_record5"
-        app:layout_constraintBottom_toTopOf="@id/frgd_patient_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <EditText
-        android:id="@+id/frgd_patient_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/first_name"
-        android:inputType="textPersonName"
-        android:layout_margin="5dp"
-        android:textSize="20dp"
-        android:background="@drawable/custom_back_edit_text"
-        app:layout_constraintTop_toBottomOf="@id/frgd_record6"
-        app:layout_constraintBottom_toTopOf="@id/frgd_patient_lastname"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <EditText
-        android:id="@+id/frgd_patient_lastname"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/last_name"
-        android:inputType="textPersonName"
-        android:layout_margin="5dp"
-        android:textSize="20dp"
-        android:background="@drawable/custom_back_edit_text"
-        app:layout_constraintTop_toBottomOf="@id/frgd_patient_name"
-        app:layout_constraintBottom_toTopOf="@id/frgd_patient_birthday"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <EditText
-        android:id="@+id/frgd_patient_birthday"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/date_of_birth"
-        android:inputType="date"
-        android:layout_margin="5dp"
-        android:textSize="20dp"
-        android:background="@drawable/custom_back_edit_text"
-        app:layout_constraintTop_toBottomOf="@id/frgd_patient_lastname"
-        app:layout_constraintBottom_toTopOf="@id/frgd_patient_phone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <EditText
-        android:id="@+id/frgd_patient_phone"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/telephone"
-        android:inputType="number"
-        android:layout_margin="5dp"
-        android:textSize="20dp"
-        android:background="@drawable/custom_back_edit_text"
-        app:layout_constraintTop_toBottomOf="@id/frgd_patient_birthday"
-        app:layout_constraintBottom_toTopOf="@id/frgd_patient_email"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <EditText
-        android:id="@+id/frgd_patient_email"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/email"
-        android:layout_margin="5dp"
-        android:textSize="20dp"
-        android:background="@drawable/custom_back_edit_text"
-        app:layout_constraintTop_toBottomOf="@id/frgd_patient_phone"
-        app:layout_constraintBottom_toTopOf="@id/frgd_patient_policy"
-        android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <EditText
-        android:id="@+id/frgd_patient_policy"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/polis"
-        android:layout_margin="5dp"
-        android:textSize="20dp"
-        android:background="@drawable/custom_back_edit_text"
-        app:layout_constraintTop_toBottomOf="@id/frgd_patient_email"
-        app:layout_constraintBottom_toTopOf="@id/frgd_patient_comments"
-        android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <EditText
-        android:id="@+id/frgd_patient_comments"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/comment"
-        android:layout_margin="5dp"
-        android:textSize="20dp"
-        android:background="@drawable/custom_back_edit_text"
-        app:layout_constraintTop_toBottomOf="@id/frgd_patient_policy"
-        app:layout_constraintBottom_toTopOf="@id/frgd_registration_to_doctor_button"
-        android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <Button
-        android:id="@+id/frgd_registration_to_doctor_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/sign_up"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="15dp"
-        android:background="@drawable/rectangle_for_list"
-        app:layout_constraintTop_toBottomOf="@id/frgd_patient_comments"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/frgd_record1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="3dp"
+            android:text="@string/record_data"
+            android:textSize="15sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/frgd_record2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@string/data"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/frgd_record3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@string/data"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/frgd_record4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@string/data"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/frgd_record5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@string/data"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/frgd_record6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="@string/your_data"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/frgd_patient_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/custom_back_edit_text"
+            android:hint="@string/first_name"
+            android:inputType="textPersonName"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/frgd_patient_lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/custom_back_edit_text"
+            android:hint="@string/last_name"
+            android:inputType="textPersonName"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/frgd_patient_birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/custom_back_edit_text"
+            android:hint="@string/date_of_birth"
+            android:inputType="date"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/frgd_patient_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/custom_back_edit_text"
+            android:hint="@string/telephone"
+            android:inputType="number"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/frgd_patient_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/custom_back_edit_text"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/frgd_patient_policy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/custom_back_edit_text"
+            android:hint="@string/polis"
+            android:inputType="textEmailAddress"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/frgd_patient_comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/custom_back_edit_text"
+            android:hint="@string/comment"
+            android:inputType="textEmailAddress"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/frgd_registration_to_doctor_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="15dp"
+            android:background="@drawable/rectangle_for_list"
+            android:text="@string/sign_up" />
+
+    </LinearLayout>
+</ScrollView>

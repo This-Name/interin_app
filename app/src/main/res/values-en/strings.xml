@@ -8,6 +8,7 @@
     <string name="doctors">Doctors</string>
     <string name="edit">Edit</string>
     <string name="email">Email</string>
+    <string name="empty_field">…</string>
     <string name="first_name">First name</string>
     <string name="institutions">Institutions</string>
     <string name="last_name">Last name</string>

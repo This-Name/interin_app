@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="100"
     android:background="#dcdcdc"
     android:orientation="vertical"
-    android:theme="@style/AppTheme">
+    android:theme="@style/AppTheme"
+    android:weightSum="100">
 
     <fragment
         android:id="@+id/as_nav_host"
@@ -25,9 +25,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="10"
+        android:background="@color/cardview_light_background"
         app:itemIconTint="@drawable/bottom_menu_state"
         app:itemTextColor="@drawable/bottom_menu_state"
-        android:background="@color/cardview_light_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/main" />
 

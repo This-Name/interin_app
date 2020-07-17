@@ -8,6 +8,7 @@
     <string name="doctors">Врачи</string>
     <string name="edit">Изменить</string>
     <string name="email">Почта</string>
+    <string name="empty_field">…</string>
     <string name="first_name">Имя</string>
     <string name="institutions">Учреждения</string>
     <string name="last_name">Фамилия</string>
