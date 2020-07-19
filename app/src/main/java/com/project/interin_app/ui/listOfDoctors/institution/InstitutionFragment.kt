@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
-import com.project.interin_app.repository.sheuduleMedInstitution.ROWS
+import com.project.interin_app.repository.sheuduleMedInstitution.MedInstitution
 import kotlinx.coroutines.launch
 
 class InstitutionFragment : Fragment(R.layout.fragment_institution) {
@@ -24,15 +24,15 @@ class InstitutionFragment : Fragment(R.layout.fragment_institution) {
             recyclerView.layoutManager = LinearLayoutManager(activity)
             recyclerView.adapter =
                 InstitutionAdapter(
-                    institutionViewModel.getMedInstitution().ROWS,
+                    institutionViewModel.getMedInstitution().medInstitution,
                     object :
                         InstitutionAdapter.Listener {
-                        override fun onItemClick(institution: ROWS) {
+                        override fun onItemClick(institution: MedInstitution) {
                             val bundle = Bundle()
                             val data =
                                 ArrayList<String>() // можно помещать любые данные которые нужны дальше
-                            data.add(institution._ID)
-                            data.add(institution.NAME)
+                            data.add(institution.id)
+                            data.add(institution.name)
                             bundle.putStringArrayList(
                                 "idAndNameOfInstitution",
                                 data

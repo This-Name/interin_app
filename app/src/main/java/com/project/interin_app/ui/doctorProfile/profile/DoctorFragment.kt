@@ -11,12 +11,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
-import com.project.interin_app.repository.slotDoctorsAppointment.ROWS
+import com.project.interin_app.repository.slotDoctorsAppointment.Slot
 import kotlinx.coroutines.launch
 
 class DoctorFragment : Fragment(R.layout.fragment_doctor) {
     private val doctorViewModel by viewModels<DoctorViewModel>()
-    private var slotList: List<Any> = mutableListOf()
+    private var slotList: List<Slot> = mutableListOf()
     private lateinit var institutionData: ArrayList<String>
     private lateinit var resourceInfo: String
 
@@ -31,22 +31,22 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
         val calendar: CalendarView = view.findViewById(R.id.ad_set_date_calendar)
         var currentDate = ""
         val recyclerView: RecyclerView = view.findViewById(R.id.ad_rv_time)
-        val slotList: List<Any> = mutableListOf()
+        val slotList: List<Slot> = mutableListOf()
         recyclerView.layoutManager = GridLayoutManager(activity, 3)
 
         val adapter =
             DoctorTimeAdapter(
-                slotList as List<ROWS>,
+                slotList,
                 object :
                     DoctorTimeAdapter.Listener {
-                    override fun onItemClick(time: ROWS) {
+                    override fun onItemClick(time: Slot) {
                         val appointmentInfo = ArrayList<String>()
                         appointmentInfo.add(institutionData[1])
-                        appointmentInfo.add(time.GROUP)
-                        appointmentInfo.add(time.DOCTOR)
-                        appointmentInfo.add(time.START)
+                        appointmentInfo.add(time.group)
+                        appointmentInfo.add(time.doctor)
+                        appointmentInfo.add(time.start)
                         val bundle = Bundle()
-                        bundle.putString("slotId", time.ID)
+                        bundle.putString("slotId", time.id)
                         bundle.putStringArrayList("appointmentInfo", appointmentInfo)
                         findNavController().navigate(
                             R.id.action_doctorFragment_to_doctor_RegistrationFragment,

@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
-import com.project.interin_app.repository.doctors.GROUPS
+import com.project.interin_app.repository.doctors.Specialization
 
-class DoctorSpecializationAdapter(var items: List<GROUPS>, val itemClick: Listener) :
+class DoctorSpecializationAdapter(var items: List<Specialization>, val itemClick: Listener) :
     RecyclerView.Adapter<DoctorSpecializationAdapter.SpecializationViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpecializationViewHolder {
@@ -30,9 +30,9 @@ class DoctorSpecializationAdapter(var items: List<GROUPS>, val itemClick: Listen
     }
 
     inner class SpecializationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(group: GROUPS) {
+        fun bind(group: Specialization) {
             val textViewName = itemView.findViewById<TextView>(R.id.rv_specialization_doctor)
-            textViewName.text = group.NAME
+            textViewName.text = group.name
             itemView.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) {
                     itemClick.onItemClick(items[adapterPosition])
@@ -42,6 +42,6 @@ class DoctorSpecializationAdapter(var items: List<GROUPS>, val itemClick: Listen
     }
 
     interface Listener {
-        fun onItemClick(specialization: GROUPS)
+        fun onItemClick(specialization: Specialization)
     }
 }

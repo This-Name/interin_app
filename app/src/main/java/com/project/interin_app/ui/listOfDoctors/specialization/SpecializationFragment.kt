@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
-import com.project.interin_app.repository.doctors.GROUPS
+import com.project.interin_app.repository.doctors.Specialization
 import kotlinx.coroutines.launch
 
 class SpecializationFragment : Fragment(R.layout.fragment__listofdoctors_specialization) {
@@ -31,9 +31,9 @@ class SpecializationFragment : Fragment(R.layout.fragment__listofdoctors_special
                     specializationViewModel.getSpecialization(),
                     object :
                         DoctorSpecializationAdapter.Listener {
-                        override fun onItemClick(specialization: GROUPS) {
+                        override fun onItemClick(specialization: Specialization) {
                             val bundle = Bundle()
-                            val data = specialization.RESOURCES
+                            val data = specialization.resources
                             bundle.putParcelableArrayList("ListOfResources", data)
                             bundle.putStringArrayList("idAndNameOfInstitution", inputData)
                             findNavController().navigate(

@@ -3,11 +3,14 @@ package com.project.interin_app
 import android.app.Application
 import androidx.room.Room
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.project.interin_app.repository.api.InterinApi
 import com.project.interin_app.repository.userData.UserDataBase
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonConfiguration
+import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MainApplication : Application() {
     override fun onCreate() {
@@ -17,7 +20,7 @@ class MainApplication : Application() {
         interinApi = Retrofit.Builder()
             .baseUrl("https://services.interin.ru/")
             .client(OkHttpClient.Builder().build())
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(Json(JsonConfiguration(isLenient = true)).asConverterFactory(MediaType.get("application/json")))
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build().create(InterinApi::class.java)
     }

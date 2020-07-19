@@ -1,7 +1,7 @@
 package com.project.interin_app.repository.api
 
 import com.project.interin_app.MainApplication
-import com.project.interin_app.repository.slotDoctorsAppointment.ROWS
+import com.project.interin_app.repository.slotDoctorsAppointment.Slot
 import com.project.interin_app.repository.userData.Records
 import com.project.interin_app.repository.userData.User
 
@@ -12,18 +12,18 @@ class DoctorsRepository {
 
 
     suspend fun getListMedInstitution() = doctorApi.getMedInstitutions()
-    suspend fun getListSlot(params: String) = getFreeSlot(doctorApi.getSlot(params).ROWS)
-    suspend fun getFreeSlot(slot: List<ROWS>): List<ROWS> {
-        var listSlots: MutableList<ROWS> = mutableListOf()
+    suspend fun getListSlot(params: String) = getFreeSlot(doctorApi.getSlot(params).slots)
+    private fun getFreeSlot(slot: List<Slot>): List<Slot> {
+        var listSlots: MutableList<Slot> = mutableListOf()
         slot.forEach {
-            if (it.BOOK == null && it.ACTION == 1) {
+            if (it.book == null && it.action == 1) {
                 listSlots.add(it)
             }
         }
         return listSlots
     }
 
-    suspend fun getSpecializations() = doctorApi.getAllDoctors().GROUPS
+    suspend fun getSpecializations() = doctorApi.getAllDoctors().groups
     suspend fun createRecord(params: String) = doctorApi.makeRecord(params)
     suspend fun deleteRecord(params: String) = doctorApi.deleteRecord(params)
 

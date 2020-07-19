@@ -6,34 +6,33 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class MedInstitution(
     @SerialName("CODE")
-    val CODE: String = "",
+    val code: String,
     @SerialName("DESCRIPTION")
-    val DESCRIPTION: String = "",
+    val description: String,
     @SerialName("INSTANCE")
-    val INSTANCE: String = "",
+    val instance: String,
     @SerialName("INSTANCE_NAME")
-    val INSTANCE_NAME: String = "",
+    val instanceName: String,
     @SerialName("NAME")
-    val NAME: String = "",
+    val name: String,
     @SerialName("ORGANIZATION")
-    val ORGANIZATION: String = "",
+    val organization: String,
     @SerialName("ORGANIZATION_ID")
-    val ORGANIZATION_ID: String = "",
+    val organizationId: String,
     @SerialName("ROWS")
-    val ROWS: List<Any>,
+    val rows: List<String> = mutableListOf(),
     @SerialName("_AUTHOR")
-    val _AUTHOR: String = "",
+    val author: String,
     @SerialName("_DB")
-    val _DB: String = "",
+    val db: String,
     @SerialName("_ID")
-    val _ID: String = "",
+    val id: String,
     @SerialName("_MODIFIED")
-    val _MODIFIED: String = "",
+    val modified: String,
     @SerialName("_REV")
-    val _REV: Int = 0,
+    val rev: Int,
     @SerialName("_STATUS")
-    val _STATUS: Int = 0,
+    val status: Int,
     @SerialName("_TYPE")
-    val _TYPE: String = ""
+    val type: String
 )
-
