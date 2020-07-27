@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.project.interin_app.repository.api.DoctorsRepository
 import com.project.interin_app.repository.userData.Records
-import com.project.interin_app.repository.userData.User
 import kotlinx.coroutines.launch
 
 class UserRecordsViewModel(application: Application) : AndroidViewModel(application) {

@@ -1,8 +1,11 @@
 package com.project.interin_app.repository.userData
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.OnConflictStrategy
+import androidx.room.Insert
+import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface UserDao {

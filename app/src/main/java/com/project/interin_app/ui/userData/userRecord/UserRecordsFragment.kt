@@ -27,12 +27,12 @@ class UserRecordsFragment : Fragment(R.layout.fragment_user_records) {
                     val bundle = Bundle()
                     val data =
                         ArrayList<String>() // можно помещать любые данные которые нужны дальше
-                    data.add(record._ID)
-                    data.add(record.BOOK_ID)
-                    data.add(record.Date)
-                    data.add(record.Doctor)
-                    data.add(record.Time)
-                    data.add(record.Specialization)
+                    data.add(record.idRecords)
+                    data.add(record.bookId)
+                    data.add(record.date)
+                    data.add(record.doctor)
+                    data.add(record.time)
+                    data.add(record.specialization)
                     bundle.putStringArrayList("infSlot", data)
                     findNavController().navigate(
                         R.id.action_user_RecordsFragment_to_user_Edit_RecordsFragment,
@@ -48,9 +48,5 @@ class UserRecordsFragment : Fragment(R.layout.fragment_user_records) {
                 adapter.loadRecords(it)
             }
         })
-        /*var content = userRecordsViewModel.getRecords()
-        if (content == null) {
-            content = mutableListOf()
-        }*/
     }
 }

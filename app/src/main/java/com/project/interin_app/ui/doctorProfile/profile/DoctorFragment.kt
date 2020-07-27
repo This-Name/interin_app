@@ -53,31 +53,29 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
                             bundle
                         )
                     }
-
                 })
         recyclerView.adapter = adapter
 
-        if (currentDate == "")
+        if (currentDate == "") {
             loadSlots(
                 DateTimeFormat.forPattern("dd.MM.yyyy").print(calendar.date),
                 institutionData[0],
                 resourceInfo,
                 adapter
             )
-
+        }
         calendar.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            val formattedDay = if (dayOfMonth < 10)
+            val formattedDay = if (dayOfMonth < 10) {
                 "0" + (dayOfMonth).toString()
-            else
+            } else {
                 (dayOfMonth).toString()
-
-            val formattedMonth = if (month + 1 < 10)
+            }
+            val formattedMonth = if (month + 1 < 10) {
                 "0" + (month + 1).toString()
-            else
+            } else {
                 (month + 1).toString()
-
+            }
             currentDate = "$formattedDay.$formattedMonth.$year"
-
             loadSlots(currentDate, institutionData[0], resourceInfo, adapter)
         }
     }
@@ -85,15 +83,13 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
     private fun loadSlots(
         currentDate: String,
         scheduleId: String,
-        resource_id: String,
+        resourceId: String,
         adapter: DoctorTimeAdapter
     ) {
         viewLifecycleOwner.lifecycleScope.launch {
-            //Schedule = 7FA39CC10D36087CE0530100007F1682 основное
-            //Resource = 7FA60CCEEFE36563E0530100007FA9EB хирург - сидоров
             slotList = doctorViewModel.getListFreeSlots(
                 "{SCHEDULE_ID:\"$scheduleId\"," +
-                        "RESOURCE_ID:\"$resource_id\",BDATE:\"$currentDate\",EDATE:\"$currentDate\"}"
+                        "RESOURCE_ID:\"$resourceId\",BDATE:\"$currentDate\",EDATE:\"$currentDate\"}"
             )
             adapter.loadSlots(slotList)
         }

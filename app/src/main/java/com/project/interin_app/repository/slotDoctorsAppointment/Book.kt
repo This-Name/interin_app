@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Book(
     @SerialName("CHART_ID")
-    val chart_id: String = "",
+    val chartId: String = "",
     @SerialName("COMMENTS")
     val comments: String = "",
     @SerialName("END")
@@ -14,27 +14,27 @@ data class Book(
     @SerialName("INSTANCE")
     val instance: String = "",
     @SerialName("ORGANIZATION_ID")
-    val organization_id: String = "",
+    val organizationId: String = "",
     @SerialName("PARENT_ID")
-    val parent_id: String = "",
+    val parentId: String = "",
     @SerialName("PATIENT_BIRTHDAY")
-    val patient_birthday: String = "",
+    val patientBirthday: String = "",
     @SerialName("PATIENT_EMAIL")
-    val patient_email: String = "",
+    val patientEmail: String = "",
     @SerialName("PATIENT_ID")
-    val patient_id: String = "",
+    val patientId: String = "",
     @SerialName("PATIENT_LASTNAME")
-    val patient_lastname: String = "",
+    val patientLastname: String = "",
     @SerialName("PATIENT_NAME")
-    val patient_name: String = "",
+    val patientName: String = "",
     @SerialName("PATIENT_PHONE")
-    val patient_phone: String = "",
+    val patientPhone: String = "",
     @SerialName("PAYMENT_ID")
-    val payment_id: String = "",
+    val paymentId: String = "",
     @SerialName("PERSON_ID")
-    val person_id: String = "",
+    val personId: String = "",
     @SerialName("RESOURCE_ID")
-    val resource_id: String = "",
+    val resourceId: String = "",
     @SerialName("START")
     val start: String = "",
     @SerialName("_AUTHOR")

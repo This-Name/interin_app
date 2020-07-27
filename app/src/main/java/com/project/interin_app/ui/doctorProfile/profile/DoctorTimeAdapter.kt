@@ -31,7 +31,7 @@ class DoctorTimeAdapter(var values: List<Slot>, val itemClick: Listener) :
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(text: Slot) {
             val textViewName = itemView.findViewById<TextView>(R.id.rv_time_doctor)
-            textViewName.text = text.time_show.toString()
+            textViewName.text = text.timeShow
             itemView.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) {
                     itemClick.onItemClick(values[adapterPosition])

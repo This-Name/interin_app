@@ -8,21 +8,20 @@ import com.project.interin_app.repository.api.InterinApi
 import com.project.interin_app.repository.userData.UserDataBase
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
-import net.danlew.android.joda.JodaTimeAndroid
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
-import retrofit2.Retrofit
+import retrofit2.Retrofit.Builder
 
 class MainApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        //JodaTimeAndroid.init(this)
         instance = this
         database = Room.databaseBuilder(this, UserDataBase::class.java, "database").build()
-        interinApi = Retrofit.Builder()
+        api = Builder()
             .baseUrl("https://services.interin.ru/")
             .client(OkHttpClient.Builder().build())
-            .addConverterFactory(Json(JsonConfiguration(isLenient = true, ignoreUnknownKeys = true)).asConverterFactory(MediaType.get("application/json")))
+            .addConverterFactory(Json(JsonConfiguration(isLenient = true, ignoreUnknownKeys = true))
+                .asConverterFactory(MediaType.get("application/json")))
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build().create(InterinApi::class.java)
     }
@@ -30,6 +29,6 @@ class MainApplication : Application() {
     companion object {
         lateinit var instance: Application
         lateinit var database: UserDataBase
-        lateinit var interinApi: InterinApi
+        lateinit var api: InterinApi
     }
 }

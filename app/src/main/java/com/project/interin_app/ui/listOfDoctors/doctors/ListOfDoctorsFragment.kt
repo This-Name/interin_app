@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
 import com.project.interin_app.repository.doctors.Doctor
 
-class ListofDoctorsFragment : Fragment(R.layout.fragment_listofdoctors_doctors) {
+class ListOfDoctorsFragment : Fragment(R.layout.fragment_listofdoctors_doctors) {
     private lateinit var institutionData: ArrayList<String>
     private lateinit var resourcesList: List<Doctor>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

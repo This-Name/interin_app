@@ -11,25 +11,25 @@ data class Doctor(
     @SerialName("COMMENTS")
     val comments: String = "",
     @SerialName("DEF_LENGTH")
-    val def_length: String = "",
+    val defLength: String = "",
     @SerialName("DEPARTMENT_ID")
-    val department_id: String = "",
+    val departmentId: String = "",
     @SerialName("DEPARTMENT_NAME")
-    val department_name: String = "",
+    val departmentName: String = "",
     @SerialName("DESCRIPTION")
     val description: String = "",
     @SerialName("DOCTOR_ID")
-    val doctor_id: String = "",
+    val doctorId: String = "",
     @SerialName("DOCTOR_NAME")
-    val doctor_name: String = "",
+    val doctorName: String = "",
     @SerialName("GROUP_ID")
-    val group_id: String = "",
+    val groupId: String = "",
     @SerialName("GROUP_NAME")
-    val group_name: String = "",
+    val groupName: String = "",
     @SerialName("INSTANCE")
     val instance: String = "",
     @SerialName("INSTANCE_NAME")
-    val instance_name: String = "",
+    val instanceName: String = "",
     @SerialName("LIMITED")
     val limited: Boolean,
     @SerialName("NAME")
@@ -37,33 +37,33 @@ data class Doctor(
     @SerialName("ORGANIZATION")
     val organization: String = "",
     @SerialName("ORGANIZATION_ID")
-    val organization_id: String = "",
+    val organizationId: String = "",
     @SerialName("ORG_ID")
-    val org_id: String = "",
+    val orgId: String = "",
     @SerialName("ORG_NAME")
-    val org_name: String = "",
+    val orgName: String = "",
     @SerialName("PREFIX")
     val prefix: String = "",
     @SerialName("RASPS_SHOW")
-    val rasps_show: String = "",
+    val raspsShow: String = "",
     @SerialName("ROOM_ID")
-    val room_id: String = "",
+    val roomId: String = "",
     @SerialName("ROOM_NAME")
-    val room_name: String = "",
+    val roomName: String = "",
     @SerialName("SEQ")
     val seq: String = "",
     @SerialName("SHOW_TERMINAL")
-    val show_terminal: Boolean,
+    val showTerminal: Boolean,
     @SerialName("SHOW_WEB")
-    val show_web: Boolean,
+    val showWeb: Boolean,
     @SerialName("SPECIALITY_ID")
-    val speciality_id: String = "",
+    val specialityId: String = "",
     @SerialName("SPECIALITY_NAME")
-    val speciality_name: String = "",
+    val specialityName: String = "",
     @SerialName("SPEC_ID")
-    val spec_id: String = "",
+    val specId: String = "",
     @SerialName("SPEC_NAME")
-    val spec_name: String = "",
+    val specName: String = "",
     @SerialName("SRVS")
     val srvs: List<Services> = mutableListOf(),
     @SerialName("_AUTHOR")

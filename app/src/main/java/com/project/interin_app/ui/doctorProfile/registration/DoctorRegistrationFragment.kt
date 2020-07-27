@@ -34,23 +34,22 @@ class DoctorRegistrationFragment : Fragment(R.layout.fragment_registration_docto
         view.findViewById<TextView>(R.id.frgd_record3).text = appointmentInfo[1]
         view.findViewById<TextView>(R.id.frgd_record4).text = appointmentInfo[2]
         view.findViewById<TextView>(R.id.frgd_record5).text = appointmentInfo[3]
-
-        //val content = doctorRegistrationViewModel.getUser()
+        
         doctorRegistrationViewModel.getUserData()?.observe(viewLifecycleOwner, Observer {
             if (it != null) {
-                view.findViewById<EditText>(R.id.frgd_patient_name).setText(it.FirstName)
-                view.findViewById<EditText>(R.id.frgd_patient_lastname).setText(it.LastName)
-                view.findViewById<EditText>(R.id.frgd_patient_birthday).setText(it.Birthday)
-                view.findViewById<EditText>(R.id.frgd_patient_phone).setText(it.Phone)
-                view.findViewById<EditText>(R.id.frgd_patient_email).setText(it.Email)
-                view.findViewById<EditText>(R.id.frgd_patient_policy).setText(it.Policy)
+                view.findViewById<EditText>(R.id.frgd_patient_name).setText(it.firstName)
+                view.findViewById<EditText>(R.id.frgd_patient_lastname).setText(it.lastName)
+                view.findViewById<EditText>(R.id.frgd_patient_birthday).setText(it.birthday)
+                view.findViewById<EditText>(R.id.frgd_patient_phone).setText(it.phone)
+                view.findViewById<EditText>(R.id.frgd_patient_email).setText(it.email)
+                view.findViewById<EditText>(R.id.frgd_patient_policy).setText(it.policy)
             }
         })
 
             view.findViewById<Button>(R.id.frgd_registration_to_doctor_button).setOnClickListener {
                 viewLifecycleOwner.lifecycleScope.launch {
                     val name = view.findViewById<EditText>(R.id.frgd_patient_name).text.toString()
-                    val lastmane =
+                    val lastName =
                         view.findViewById<EditText>(R.id.frgd_patient_lastname).text.toString()
                     val birthday =
                         view.findViewById<EditText>(R.id.frgd_patient_birthday).text.toString()
@@ -64,14 +63,14 @@ class DoctorRegistrationFragment : Fragment(R.layout.fragment_registration_docto
                         view.findViewById<EditText>(R.id.frgd_patient_comments).text.toString()
 
                     slot = doctorRegistrationViewModel.createRecord(
-                        "{SLOT_ID:\"$slotId\",PATIENT_NAME:\"$name\",PATIENT_LASTNAME:\"$lastmane\"," +
+                        "{SLOT_ID:\"$slotId\",PATIENT_NAME:\"$name\",PATIENT_LASTNAME:\"$lastName\"," +
                                 "PATIENT_BIRTHDAY:\"$birthday\",PATIENT_PHONE:\"$phone\",PATIENT_EMAIL:\"$email\"," +
                                 "PATIENT_POLICY:\"$policy\",COMMENTS:\"$comments\"}"
                     )
                     doctorRegistrationViewModel.insertUserRecord(
                         Records(
-                            slot.ID,
-                            slot.BOOK_ID,
+                            slot.id,
+                            slot.bookId,
                             slotId,
                             appointmentInfo[3],
                             appointmentInfo[2],
@@ -82,7 +81,7 @@ class DoctorRegistrationFragment : Fragment(R.layout.fragment_registration_docto
                     doctorRegistrationViewModel.updateUser(
                         User(
                             name.toString(),
-                            lastmane,
+                            lastName,
                             birthday,
                             phone,
                             email,

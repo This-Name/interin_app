@@ -28,7 +28,6 @@ class InstitutionAdapter(var items: List<MedInstitution>, val itemClick: Listene
         holder.bind(items[position])
     }
 
-
     inner class InstitutionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(institution: MedInstitution) {
             val textViewOrganization =

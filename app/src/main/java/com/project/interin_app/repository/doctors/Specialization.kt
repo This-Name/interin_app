@@ -8,7 +8,7 @@ data class Specialization(
     @SerialName("CODE")
     val code: String = "",
     @SerialName("DEL_TITLE")
-    val del_title: String = "",
+    val delTitle: String = "",
     @SerialName("ID")
     val id: String = "",
     @SerialName("NAME")
@@ -20,19 +20,19 @@ data class Specialization(
     @SerialName("STATUS")
     val status: String = "",
     @SerialName("STATUS_TEXT")
-    val status_text: String = "",
+    val statusText: String = "",
     @SerialName("_AUTHOR")
     val author: String = "",
     @SerialName("_DB")
     val db: String = "",
     @SerialName("_ID")
-    val _id: String = "",
+    val idSpc: String = "",
     @SerialName("_MODIFIED")
     val modified: String = "",
     @SerialName("_REV")
     val rev: Int = 0,
     @SerialName("_STATUS")
-    val _status: Int = 0,
+    val statusSpc: Int = 0,
     @SerialName("_TYPE")
     val type: String = ""
 )

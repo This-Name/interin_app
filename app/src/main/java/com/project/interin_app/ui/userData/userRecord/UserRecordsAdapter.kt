@@ -38,8 +38,8 @@ class UserRecordsAdapter(var items: List<Records>, val itemClick: Listener) :
         fun bind(record: Records) {
             val textViewName = itemView.findViewById(R.id.rv_records_name) as TextView
             val textViewDate = itemView.findViewById(R.id.rv_records_date) as TextView
-            textViewName.text = record.Doctor
-            textViewDate.text = record.Date
+            textViewName.text = record.doctor
+            textViewDate.text = record.date
             itemView.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) {
                     itemClick.onItemClick(items[adapterPosition])

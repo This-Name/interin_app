@@ -3,33 +3,32 @@ package com.project.interin_app.repository.userData
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.project.interin_app.repository.userRecord.Registration
 
 @Entity(
     tableName = "Records"
 )
 data class Records(
     @ColumnInfo(name = "_ID")
-    val _ID: String,
+    val idRecords: String,
     @ColumnInfo(name = "BOOK_ID")
-    val BOOK_ID: String,
+    val bookId: String,
     @ColumnInfo(name = "Slot_id")
-    val Slot_id: String,
+    val slotId: String,
     @ColumnInfo(name = "Date")
-    val Date: String,
+    val date: String,
     @ColumnInfo(name = "Doctor")
-    val Doctor: String,
+    val doctor: String,
     @ColumnInfo(name = "Specialization")
-    val Specialization: String,
+    val specialization: String,
     @ColumnInfo(name = "Time")
-    val Time: String,
+    val time: String,
 
     @PrimaryKey
     @ColumnInfo(name = "id")
-    val id: Long = getId(Date, Doctor, Specialization)
+    val id: Long = getId(date, doctor, specialization)
 ) {
     companion object {
-        fun getId(Date: String?, Doctor: String?, Specialization: String?): Long =
-            (Date.hashCode() + Doctor.hashCode() + Specialization.hashCode()).toLong()
+        fun getId(date: String?, doctor: String?, specialization: String?): Long =
+            (date.hashCode() + doctor.hashCode() + specialization.hashCode()).toLong()
     }
 }

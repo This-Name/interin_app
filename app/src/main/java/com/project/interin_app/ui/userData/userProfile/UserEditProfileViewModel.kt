@@ -10,15 +10,15 @@ import kotlinx.coroutines.launch
 class UserEditProfileViewModel(application: Application) : AndroidViewModel(application) {
 
     fun addUser(
-        FirstName: String,
-        LastName: String,
-        Birthday: String,
-        Phone: String,
-        Email: String,
-        Policy: String
+        firstName: String,
+        lastName: String,
+        birthday: String,
+        phone: String,
+        email: String,
+        policy: String
     ) = viewModelScope.launch {
         DoctorsRepository().insertUserData(
-            User(FirstName, LastName, Birthday, Phone, Email, Policy)
+            User(firstName, lastName, birthday, phone, email, policy)
         )
     }
 }

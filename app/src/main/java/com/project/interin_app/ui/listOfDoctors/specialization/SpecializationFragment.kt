@@ -42,7 +42,6 @@ class SpecializationFragment : Fragment(R.layout.fragment__listofdoctors_special
                                 bundle
                             )
                         }
-
                     })
         }
     }

@@ -18,24 +18,22 @@ class UserEditRecordFragment : Fragment(R.layout.fragment_user_edit_record) {
         activity?.title = R.string.record.toString()
 
         val userEditRecordViewModel by viewModels<UserEditRecordViewModel>()
-        var inputData = arguments?.getStringArrayList("infSlot")
+        val inputData = arguments?.getStringArrayList("infSlot")
 
         view.findViewById<TextView>(R.id.fuer_record2).text = inputData?.get(4)
         view.findViewById<TextView>(R.id.fuer_record3).text = inputData?.get(5)
         view.findViewById<TextView>(R.id.fuer_record4).text = inputData?.get(3)
         view.findViewById<TextView>(R.id.fuer_record5).text = inputData?.get(2)
-
-
+        
         val id = inputData?.get(1)
-        val slot_id = inputData?.get(0)
+        val slotId = inputData?.get(0)
         val doctor = inputData?.get(3)
         view.findViewById<Button>(R.id.fuer_delete_button).setOnClickListener {
             viewLifecycleOwner.lifecycleScope.launch {
-                userEditRecordViewModel.deleteRecordAPI("{ID:\"$id\",SLOT_ID:\"$slot_id\"}")
+                userEditRecordViewModel.deleteRecordAPI("{ID:\"$id\",SLOT_ID:\"$slotId\"}")
                 userEditRecordViewModel.deleteRecordDB("$doctor")
                 findNavController().navigate(R.id.action_user_Edit_RecordsFragment_to_user_RecordsFragment)
             }
         }
-
     }
 }

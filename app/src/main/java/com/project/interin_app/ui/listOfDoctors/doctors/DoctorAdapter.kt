@@ -8,10 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
 import com.project.interin_app.repository.doctors.Doctor
 
-
 class DoctorAdapter(var items: List<Doctor>, val itemClick: Listener) :
     RecyclerView.Adapter<DoctorAdapter.DoctorViewHolder>() {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DoctorViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
@@ -31,13 +29,12 @@ class DoctorAdapter(var items: List<Doctor>, val itemClick: Listener) :
         holder.bind(items[position])
     }
 
-
     inner class DoctorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(doctor: Doctor) {
             val textViewName = itemView.findViewById(R.id.rv_name_doctor) as TextView
             val textViewAddress = itemView.findViewById(R.id.rv_category_doctor) as TextView
             textViewName.text = doctor.name
-            textViewAddress.text = doctor.group_name
+            textViewAddress.text = doctor.groupName
 
             itemView.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) {
