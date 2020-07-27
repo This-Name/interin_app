@@ -4,13 +4,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
 import com.project.interin_app.repository.userData.Records
-import kotlinx.coroutines.launch
 
 class UserRecordsFragment : Fragment(R.layout.fragment_user_records) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -19,36 +18,39 @@ class UserRecordsFragment : Fragment(R.layout.fragment_user_records) {
         activity?.title = R.string.records.toString()
 
         val userRecordsViewModel by viewModels<UserRecordsViewModel>()
+        val recyclerView = view.findViewById<RecyclerView>(R.id.fud_rv_user_records)
+        val adapter = UserRecordsAdapter(
+            mutableListOf(),
+            object :
+                UserRecordsAdapter.Listener {
+                override fun onItemClick(record: Records) {
+                    val bundle = Bundle()
+                    val data =
+                        ArrayList<String>() // можно помещать любые данные которые нужны дальше
+                    data.add(record._ID)
+                    data.add(record.BOOK_ID)
+                    data.add(record.Date)
+                    data.add(record.Doctor)
+                    data.add(record.Time)
+                    data.add(record.Specialization)
+                    bundle.putStringArrayList("infSlot", data)
+                    findNavController().navigate(
+                        R.id.action_user_RecordsFragment_to_user_Edit_RecordsFragment,
+                        bundle
+                    )
+                }
+            })
+        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.adapter = adapter
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            var content = userRecordsViewModel.getRecords()
-            if (content == null) {
-                content = mutableListOf()
+        userRecordsViewModel.getUserData()?.observe(viewLifecycleOwner, Observer {
+            if (it != null) {
+                adapter.loadRecords(it)
             }
-            val recyclerView = view.findViewById<RecyclerView>(R.id.fud_rv_user_records)
-            recyclerView.layoutManager = LinearLayoutManager(activity)
-            recyclerView.adapter =
-                UserRecordsAdapter(
-                    content,
-                    object :
-                        UserRecordsAdapter.Listener {
-                        override fun onItemClick(record: Records) {
-                            val bundle = Bundle()
-                            val data =
-                                ArrayList<String>() // можно помещать любые данные которые нужны дальше
-                            data.add(record._ID)
-                            data.add(record.BOOK_ID)
-                            data.add(record.Date)
-                            data.add(record.Doctor)
-                            data.add(record.Time)
-                            data.add(record.Specialization)
-                            bundle.putStringArrayList("infSlot", data)
-                            findNavController().navigate(
-                                R.id.action_user_RecordsFragment_to_user_Edit_RecordsFragment,
-                                bundle
-                            )
-                        }
-                    })
-        }
+        })
+        /*var content = userRecordsViewModel.getRecords()
+        if (content == null) {
+            content = mutableListOf()
+        }*/
     }
 }

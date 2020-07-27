@@ -1,6 +1,5 @@
 package com.project.interin_app.ui.doctorProfile.profile
 
-import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.view.View
 import android.widget.CalendarView
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
 import com.project.interin_app.repository.slotDoctorsAppointment.Slot
 import kotlinx.coroutines.launch
+import org.joda.time.format.DateTimeFormat
 
 class DoctorFragment : Fragment(R.layout.fragment_doctor) {
     private val doctorViewModel by viewModels<DoctorViewModel>()
@@ -59,7 +59,7 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
 
         if (currentDate == "")
             loadSlots(
-                SimpleDateFormat("dd.MM.yyyy").format(calendar.date),
+                DateTimeFormat.forPattern("dd.MM.yyyy").print(calendar.date),
                 institutionData[0],
                 resourceInfo,
                 adapter

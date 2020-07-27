@@ -23,12 +23,13 @@ class SpecializationFragment : Fragment(R.layout.fragment__listofdoctors_special
 
         val specializationViewModel by viewModels<SpecializationViewModel>()
         val recyclerView: RecyclerView = view.findViewById(R.id.fld_rv_doctors_specialization)
+        val institutionId = inputData[0]
 
         viewLifecycleOwner.lifecycleScope.launch {
             recyclerView.layoutManager = LinearLayoutManager(activity)
             recyclerView.adapter =
                 DoctorSpecializationAdapter(
-                    specializationViewModel.getSpecialization(),
+                    specializationViewModel.getSpecialization("{SCHEDULE_ID:\"$institutionId\"}"),
                     object :
                         DoctorSpecializationAdapter.Listener {
                         override fun onItemClick(specialization: Specialization) {

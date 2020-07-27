@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
+import com.project.interin_app.repository.slotDoctorsAppointment.Slot
 import com.project.interin_app.repository.userData.Records
 
 class UserRecordsAdapter(var items: List<Records>, val itemClick: Listener) :
@@ -22,6 +23,11 @@ class UserRecordsAdapter(var items: List<Records>, val itemClick: Listener) :
 
     override fun getItemCount(): Int {
         return items.size
+    }
+
+    fun loadRecords(data: List<Any>) {
+        items = data as List<Records>
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: RecordsViewHolder, position: Int) {

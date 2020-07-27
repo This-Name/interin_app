@@ -1,5 +1,6 @@
 package com.project.interin_app.repository.api
 
+import androidx.lifecycle.LiveData
 import com.project.interin_app.MainApplication
 import com.project.interin_app.repository.slotDoctorsAppointment.Slot
 import com.project.interin_app.repository.userData.Records
@@ -23,7 +24,7 @@ class DoctorsRepository {
         return listSlots
     }
 
-    suspend fun getSpecializations() = doctorApi.getAllDoctors().groups
+    suspend fun getSpecializations(params: String) = doctorApi.getAllDoctors(params).groups
     suspend fun createRecord(params: String) = doctorApi.makeRecord(params)
     suspend fun deleteRecord(params: String) = doctorApi.deleteRecord(params)
 
@@ -32,7 +33,7 @@ class DoctorsRepository {
     suspend fun insertUserData(user: User) = userDataBase.insertUser(user)
     suspend fun deleteUserData(LastName: String) = userDataBase.deleteUser(LastName)
 
-    suspend fun getUserRecords(): List<Records> = userDataBase.getRecords()
+    suspend fun getUserRecords(): LiveData<List<Records>> = userDataBase.getRecords()
     suspend fun insertUserRecord(record: Records) = userDataBase.insertRecord(record)
     suspend fun deleteUserRecord(Doctor: String) = userDataBase.deleteRecord(Doctor)
 }

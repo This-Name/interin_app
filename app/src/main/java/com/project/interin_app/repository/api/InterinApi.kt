@@ -12,8 +12,8 @@ interface InterinApi {
     @GET("wix.registry_api?p_resource=SCHEDULE&p_method=SEARCH&p_params={}")
     suspend fun getMedInstitutions(): ListMedInstitution
 
-    @GET("wix.registry_api?p_resource=RESOURCE&p_method=SEARCH&p_params={}")
-    suspend fun getAllDoctors(): ListSpecializations
+    @GET("wix.registry_api?p_resource=RESOURCE&p_method=SEARCH")
+    suspend fun getAllDoctors(@Query("p_params") params: String): ListSpecializations
 
     @GET("wix.registry_api?p_resource=SLOT&p_method=SEARCH")
     suspend fun getSlot(@Query("p_params") params: String): ListSlot
