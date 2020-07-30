@@ -1,8 +1,10 @@
 package com.project.interin_app.ui.doctorProfile.profile
 
+import android.accounts.NetworkErrorException
 import android.os.Bundle
 import android.view.View
 import android.widget.CalendarView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -11,7 +13,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
 import com.project.interin_app.repository.slotDoctorsAppointment.Slot
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.joda.time.format.DateTimeFormat
 
 class DoctorFragment : Fragment(R.layout.fragment_doctor) {
@@ -31,7 +35,6 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
         val calendar: CalendarView = view.findViewById(R.id.ad_set_date_calendar)
         var currentDate = ""
         val recyclerView: RecyclerView = view.findViewById(R.id.ad_rv_time)
-        val slotList: List<Slot> = mutableListOf()
         recyclerView.layoutManager = GridLayoutManager(activity, 3)
 
         val adapter =
@@ -65,6 +68,18 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
             )
         }
         calendar.setOnDateChangeListener { _, year, month, dayOfMonth ->
+            val date = DateTimeFormat.forPattern("dd-MM-yyyy")
+                .parseDateTime("$dayOfMonth-" + (month + 1) + "-" + year)
+            currentDate = DateTimeFormat.forPattern("dd.MM.yyyy").print(date)
+            Toast.makeText(context, currentDate, Toast.LENGTH_SHORT).show()
+            loadSlots(
+                currentDate,
+                institutionData[0],
+                resourceInfo,
+                adapter
+            )
+        }
+        /*calendar.setOnDateChangeListener { _, year, month, dayOfMonth ->
             val formattedDay = if (dayOfMonth < 10) {
                 "0" + (dayOfMonth).toString()
             } else {
@@ -76,8 +91,9 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
                 (month + 1).toString()
             }
             currentDate = "$formattedDay.$formattedMonth.$year"
-            loadSlots(currentDate, institutionData[0], resourceInfo, adapter)
-        }
+            Toast.makeText(context, currentDate, Toast.LENGTH_SHORT).show()
+            //loadSlots(currentDate, institutionData[0], resourceInfo, adapter)
+        }*/
     }
 
     private fun loadSlots(
@@ -87,10 +103,16 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
         adapter: DoctorTimeAdapter
     ) {
         viewLifecycleOwner.lifecycleScope.launch {
-            slotList = doctorViewModel.getListFreeSlots(
-                "{SCHEDULE_ID:\"$scheduleId\"," +
-                        "RESOURCE_ID:\"$resourceId\",BDATE:\"$currentDate\",EDATE:\"$currentDate\"}"
-            )
+            try {
+                slotList = doctorViewModel.getListFreeSlots(
+                    "{SCHEDULE_ID:\"$scheduleId\"," +
+                            "RESOURCE_ID:\"$resourceId\",BDATE:\"$currentDate\",EDATE:\"$currentDate\"}"
+                )
+            } catch (e: NetworkErrorException) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "AAA", Toast.LENGTH_SHORT).show()
+                }
+            }
             adapter.loadSlots(slotList)
         }
     }

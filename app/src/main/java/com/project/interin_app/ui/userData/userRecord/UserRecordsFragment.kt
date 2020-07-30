@@ -27,7 +27,7 @@ class UserRecordsFragment : Fragment(R.layout.fragment_user_records) {
                     val bundle = Bundle()
                     val data =
                         ArrayList<String>() // можно помещать любые данные которые нужны дальше
-                    data.add(record.idRecords)
+                    data.add(record.idRecord)
                     data.add(record.bookId)
                     data.add(record.date)
                     data.add(record.doctor)

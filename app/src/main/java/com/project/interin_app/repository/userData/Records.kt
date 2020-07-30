@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
 )
 data class Records(
     @ColumnInfo(name = "_ID")
-    val idRecords: String,
+    val idRecord: String,
     @ColumnInfo(name = "BOOK_ID")
     val bookId: String,
     @ColumnInfo(name = "Slot_id")

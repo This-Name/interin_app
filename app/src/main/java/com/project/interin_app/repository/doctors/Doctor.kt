@@ -65,7 +65,7 @@ data class Doctor(
     @SerialName("SPEC_NAME")
     val specName: String = "",
     @SerialName("SRVS")
-    val srvs: List<Services> = mutableListOf(),
+    val services: List<Services> = mutableListOf(),
     @SerialName("_AUTHOR")
     val author: String = "",
     @SerialName("_DB")
