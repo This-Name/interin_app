@@ -12,13 +12,10 @@ import androidx.navigation.fragment.findNavController
 import com.project.interin_app.R
 
 class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
+    private val userProfileViewModel by viewModels<UserProfileViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val userProfileViewModel by viewModels<UserProfileViewModel>()
-
-        activity?.title = R.string.profile.toString()
-
+        activity?.title = getString(R.string.profile)
         userProfileViewModel.getUserData()?.observe(viewLifecycleOwner, Observer {
             Log.v("UserFragment", "Get user Data")
             if (it != null) {
@@ -30,7 +27,6 @@ class UserProfileFragment : Fragment(R.layout.fragment_user_profile) {
                 view.findViewById<TextView>(R.id.fup_policy).text = it.policy
             }
         })
-
         view.findViewById<Button>(R.id.fup_edit_button).setOnClickListener {
             findNavController().navigate(R.id.action_user_ProfileFragment_to_user_Edit_ProfileFragment)
         }

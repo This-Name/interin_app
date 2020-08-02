@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
-import com.project.interin_app.repository.sheuduleMedInstitution.MedInstitution
+import com.project.interin_app.repository.scheduleMedInstitution.MedInstitution
 
 class InstitutionAdapter(var items: List<MedInstitution>, val itemClick: Listener) :
     RecyclerView.Adapter<InstitutionAdapter.InstitutionViewHolder>() {

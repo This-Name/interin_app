@@ -9,15 +9,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
-import com.project.interin_app.repository.sheuduleMedInstitution.MedInstitution
+import com.project.interin_app.repository.scheduleMedInstitution.MedInstitution
 import kotlinx.coroutines.launch
 
 class InstitutionFragment : Fragment(R.layout.fragment_institution) {
+    private val institutionViewModel by viewModels<InstitutionViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = R.string.institutions.toString()
-
-        val institutionViewModel by viewModels<InstitutionViewModel>()
+        activity?.title = getString(R.string.institutions)
         val recyclerView = view.findViewById<RecyclerView>(R.id.fin_rv_med_institution)
 
         viewLifecycleOwner.lifecycleScope.launch {

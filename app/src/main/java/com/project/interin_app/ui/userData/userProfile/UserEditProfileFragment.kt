@@ -10,12 +10,10 @@ import androidx.navigation.fragment.findNavController
 import com.project.interin_app.R
 
 class UserEditProfileFragment : Fragment(R.layout.fragment_user_edit_profile) {
+    private val userEditProfileViewModel by viewModels<UserEditProfileViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = R.string.profile.toString()
-
-        val userEditProfileViewModel by viewModels<UserEditProfileViewModel>()
-
+        activity?.title = getString(R.string.profile)
         view.findViewById<Button>(R.id.feup_save_button).setOnClickListener {
             userEditProfileViewModel.addUser(
                 view.findViewById<EditText>(R.id.feup_patient_name).text.toString(),

@@ -23,19 +23,21 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
     private var slotList: List<Slot> = mutableListOf()
     private lateinit var institutionData: ArrayList<String>
     private lateinit var resourceInfo: String
-
+    private var currentDate = ""
+    companion object {
+        private const val LIST_COLUMNS = 3
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         institutionData = arguments?.getStringArrayList("idAndNameOfInstitution")!!
         resourceInfo = arguments?.getString("resourceId")!!
 
-        activity?.title = R.string.date_and_time.toString()
+        activity?.title = getString(R.string.date_and_time)
 
         val calendar: CalendarView = view.findViewById(R.id.ad_set_date_calendar)
-        var currentDate = ""
         val recyclerView: RecyclerView = view.findViewById(R.id.ad_rv_time)
-        recyclerView.layoutManager = GridLayoutManager(activity, 3)
+        recyclerView.layoutManager = GridLayoutManager(activity, Companion.LIST_COLUMNS)
 
         val adapter =
             DoctorTimeAdapter(
@@ -71,7 +73,6 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
             val date = DateTimeFormat.forPattern("dd-MM-yyyy")
                 .parseDateTime("$dayOfMonth-" + (month + 1) + "-" + year)
             currentDate = DateTimeFormat.forPattern("dd.MM.yyyy").print(date)
-            Toast.makeText(context, currentDate, Toast.LENGTH_SHORT).show()
             loadSlots(
                 currentDate,
                 institutionData[0],
@@ -79,21 +80,6 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
                 adapter
             )
         }
-        /*calendar.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            val formattedDay = if (dayOfMonth < 10) {
-                "0" + (dayOfMonth).toString()
-            } else {
-                (dayOfMonth).toString()
-            }
-            val formattedMonth = if (month + 1 < 10) {
-                "0" + (month + 1).toString()
-            } else {
-                (month + 1).toString()
-            }
-            currentDate = "$formattedDay.$formattedMonth.$year"
-            Toast.makeText(context, currentDate, Toast.LENGTH_SHORT).show()
-            //loadSlots(currentDate, institutionData[0], resourceInfo, adapter)
-        }*/
     }
 
     private fun loadSlots(

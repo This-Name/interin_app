@@ -1,7 +1,7 @@
 package com.project.interin_app.repository.api
 
 import com.project.interin_app.repository.doctors.ListSpecializations
-import com.project.interin_app.repository.sheuduleMedInstitution.ListMedInstitution
+import com.project.interin_app.repository.scheduleMedInstitution.ListMedInstitution
 import com.project.interin_app.repository.slotDoctorsAppointment.ListSlot
 import com.project.interin_app.repository.userRecord.Registration
 import retrofit2.http.GET

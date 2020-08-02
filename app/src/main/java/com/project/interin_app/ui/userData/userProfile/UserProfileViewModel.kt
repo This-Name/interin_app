@@ -24,5 +24,5 @@ class UserProfileViewModel(application: Application) : AndroidViewModel(applicat
         return data
     }
 
-    private suspend fun getUser() = DoctorsRepository().getUserData()
+    private fun getUser() = DoctorsRepository().getUserData()
 }

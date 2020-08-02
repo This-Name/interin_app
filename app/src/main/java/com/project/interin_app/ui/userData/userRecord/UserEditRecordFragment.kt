@@ -12,19 +12,17 @@ import com.project.interin_app.R
 import kotlinx.coroutines.launch
 
 class UserEditRecordFragment : Fragment(R.layout.fragment_user_edit_record) {
+    private val userEditRecordViewModel by viewModels<UserEditRecordViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.title = getString(R.string.record)
 
-        activity?.title = R.string.record.toString()
-
-        val userEditRecordViewModel by viewModels<UserEditRecordViewModel>()
         val inputData = arguments?.getStringArrayList("infSlot")
 
         view.findViewById<TextView>(R.id.fuer_record2).text = inputData?.get(4)
         view.findViewById<TextView>(R.id.fuer_record3).text = inputData?.get(5)
         view.findViewById<TextView>(R.id.fuer_record4).text = inputData?.get(3)
         view.findViewById<TextView>(R.id.fuer_record5).text = inputData?.get(2)
-        
         val id = inputData?.get(1)
         val slotId = inputData?.get(0)
         val doctor = inputData?.get(3)

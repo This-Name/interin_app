@@ -95,7 +95,7 @@
             android:layout_margin="5dp"
             android:background="@drawable/custom_back_edit_text"
             android:hint="@string/telephone"
-            android:inputType="number"
+            android:inputType="phone"
             android:textSize="20sp" />
 
         <EditText

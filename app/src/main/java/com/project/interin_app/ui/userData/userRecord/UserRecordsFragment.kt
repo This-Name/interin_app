@@ -12,12 +12,10 @@ import com.project.interin_app.R
 import com.project.interin_app.repository.userData.Records
 
 class UserRecordsFragment : Fragment(R.layout.fragment_user_records) {
+    private val userRecordsViewModel by viewModels<UserRecordsViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        activity?.title = R.string.records.toString()
-
-        val userRecordsViewModel by viewModels<UserRecordsViewModel>()
+        activity?.title = getString(R.string.records)
         val recyclerView = view.findViewById<RecyclerView>(R.id.fud_rv_user_records)
         val adapter = UserRecordsAdapter(
             mutableListOf(),

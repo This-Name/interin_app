@@ -17,18 +17,15 @@ import com.project.interin_app.repository.userRecord.Registration
 import kotlinx.coroutines.launch
 
 class DoctorRegistrationFragment : Fragment(R.layout.fragment_registration_doctor) {
-    // slot ID
     lateinit var slotId: String
-
+    private val doctorRegistrationViewModel by viewModels<DoctorRegistrationViewModel>()
     // информация о записи по порядку: место, специальность, врач, датавремя
     lateinit var appointmentInfo: ArrayList<String>
     lateinit var slot: Registration
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val doctorRegistrationViewModel by viewModels<DoctorRegistrationViewModel>()
-
         slotId = arguments?.getString("slotId")!!
         appointmentInfo = arguments?.getStringArrayList("appointmentInfo")!!
-        activity?.title = R.string.record.toString()
+        activity?.title = getString(R.string.record)
 
         view.findViewById<TextView>(R.id.frgd_record2).text = appointmentInfo[0]
         view.findViewById<TextView>(R.id.frgd_record3).text = appointmentInfo[1]
@@ -44,7 +41,6 @@ class DoctorRegistrationFragment : Fragment(R.layout.fragment_registration_docto
                 view.findViewById<EditText>(R.id.frgd_patient_policy).setText(it.policy)
             }
         })
-
         view.findViewById<Button>(R.id.frgd_registration_to_doctor_button).setOnClickListener {
             viewLifecycleOwner.lifecycleScope.launch {
                 val name = view.findViewById<EditText>(R.id.frgd_patient_name).text.toString()
@@ -60,7 +56,6 @@ class DoctorRegistrationFragment : Fragment(R.layout.fragment_registration_docto
                     view.findViewById<EditText>(R.id.frgd_patient_policy).text.toString()
                 val comments =
                     view.findViewById<EditText>(R.id.frgd_patient_comments).text.toString()
-
                 slot = doctorRegistrationViewModel.createRecord(
                     "{SLOT_ID:\"$slotId\",PATIENT_NAME:\"$name\",PATIENT_LASTNAME:\"$lastName\"," +
                             "PATIENT_BIRTHDAY:\"$birthday\",PATIENT_PHONE:\"$phone\",PATIENT_EMAIL:\"$email\"," +

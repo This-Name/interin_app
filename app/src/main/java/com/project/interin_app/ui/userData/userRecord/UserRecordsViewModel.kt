@@ -21,5 +21,5 @@ class UserRecordsViewModel(application: Application) : AndroidViewModel(applicat
         return data
     }
 
-    private suspend fun getRecords() = DoctorsRepository().getUserRecords()
+    private fun getRecords() = DoctorsRepository().getUserRecords()
 }

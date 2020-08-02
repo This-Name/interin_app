@@ -14,7 +14,7 @@ class ListOfDoctorsFragment : Fragment(R.layout.fragment_listofdoctors_doctors) 
     private lateinit var resourcesList: List<Doctor>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = R.string.doctors.toString()
+        activity?.title = getString(R.string.doctors)
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.fld_rv_doctors)
         institutionData = arguments?.getStringArrayList("idAndNameOfInstitution")!!

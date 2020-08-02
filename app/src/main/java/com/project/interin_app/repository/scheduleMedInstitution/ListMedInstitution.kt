@@ -1,4 +1,4 @@
-package com.project.interin_app.repository.sheuduleMedInstitution
+package com.project.interin_app.repository.scheduleMedInstitution
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
