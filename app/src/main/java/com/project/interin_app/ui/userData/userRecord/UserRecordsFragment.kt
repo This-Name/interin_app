@@ -23,15 +23,7 @@ class UserRecordsFragment : Fragment(R.layout.fragment_user_records) {
                 UserRecordsAdapter.Listener {
                 override fun onItemClick(record: Records) {
                     val bundle = Bundle()
-                    val data =
-                        ArrayList<String>() // можно помещать любые данные которые нужны дальше
-                    data.add(record.idRecord)
-                    data.add(record.bookId)
-                    data.add(record.date)
-                    data.add(record.doctor)
-                    data.add(record.time)
-                    data.add(record.specialization)
-                    bundle.putStringArrayList("infSlot", data)
+                    bundle.putParcelable("Record", record)
                     findNavController().navigate(
                         R.id.action_user_RecordsFragment_to_user_Edit_RecordsFragment,
                         bundle

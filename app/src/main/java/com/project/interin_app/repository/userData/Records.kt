@@ -1,13 +1,17 @@
 package com.project.interin_app.repository.userData
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(
     tableName = "Records"
 )
 data class Records(
+    @PrimaryKey
     @ColumnInfo(name = "_ID")
     val idRecord: String,
     @ColumnInfo(name = "BOOK_ID")
@@ -20,15 +24,7 @@ data class Records(
     val doctor: String,
     @ColumnInfo(name = "Specialization")
     val specialization: String,
-    @ColumnInfo(name = "Time")
-    val time: String,
+    @ColumnInfo(name = "Institution")
+    val institution: String
 
-    @PrimaryKey
-    @ColumnInfo(name = "id")
-    val id: Long = getId(date, doctor, specialization)
-) {
-    companion object {
-        fun getId(date: String?, doctor: String?, specialization: String?): Long =
-            (date.hashCode() + doctor.hashCode() + specialization.hashCode()).toLong()
-    }
-}
+) : Parcelable

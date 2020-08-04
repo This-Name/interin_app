@@ -32,12 +32,11 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
 
         institutionData = arguments?.getStringArrayList("idAndNameOfInstitution")!!
         resourceInfo = arguments?.getString("resourceId")!!
-
         activity?.title = getString(R.string.date_and_time)
 
         val calendar: CalendarView = view.findViewById(R.id.ad_set_date_calendar)
         val recyclerView: RecyclerView = view.findViewById(R.id.ad_rv_time)
-        recyclerView.layoutManager = GridLayoutManager(activity, Companion.LIST_COLUMNS)
+        recyclerView.layoutManager = GridLayoutManager(activity, LIST_COLUMNS)
 
         val adapter =
             DoctorTimeAdapter(
@@ -94,12 +93,12 @@ class DoctorFragment : Fragment(R.layout.fragment_doctor) {
                     "{SCHEDULE_ID:\"$scheduleId\"," +
                             "RESOURCE_ID:\"$resourceId\",BDATE:\"$currentDate\",EDATE:\"$currentDate\"}"
                 )
+                adapter.loadSlots(slotList)
             } catch (e: NetworkErrorException) {
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(context, "AAA", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Exception", Toast.LENGTH_SHORT).show()
                 }
             }
-            adapter.loadSlots(slotList)
         }
     }
 }

@@ -1,9 +1,12 @@
 package com.project.interin_app.ui.userData.userProfile
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -25,5 +28,11 @@ class UserEditProfileFragment : Fragment(R.layout.fragment_user_edit_profile) {
             )
             findNavController().navigate(R.id.action_user_Edit_ProfileFragment_to_user_ProfileFragment)
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 }
