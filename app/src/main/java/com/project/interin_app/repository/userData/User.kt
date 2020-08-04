@@ -9,24 +9,24 @@ import androidx.room.PrimaryKey
 )
 data class User(
     @ColumnInfo(name = "FirstName")
-    val FirstName: String = "",
+    val firstName: String = "",
     @ColumnInfo(name = "LastName")
-    val LastName: String = "",
+    val lastName: String = "",
     @ColumnInfo(name = "Birthday")
-    val Birthday: String = "",
+    val birthday: String = "",
     @ColumnInfo(name = "Phone")
-    val Phone: String = "",
+    val phone: String = "",
     @ColumnInfo(name = "Email")
-    val Email: String = "",
+    val email: String = "",
     @ColumnInfo(name = "Policy")
-    val Policy: String = "",
+    val policy: String = "",
 
     @PrimaryKey
     @ColumnInfo(name = "id")
-    val id: Long = getId(FirstName, Email, Policy)
+    val id: Long = getId(firstName, email, policy)
 ) {
     companion object {
-        fun getId(FirstName: String?, Email: String?, Policy: String?): Long =
-            (FirstName.hashCode() + Email.hashCode() + Policy.hashCode()).toLong()
+        fun getId(firstName: String?, email: String?, policy: String?): Long =
+            (firstName.hashCode() + email.hashCode() + policy.hashCode()).toLong()
     }
 }

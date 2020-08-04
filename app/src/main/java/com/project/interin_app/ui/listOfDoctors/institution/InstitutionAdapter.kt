@@ -6,13 +6,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
-import com.project.interin_app.repository.sheuduleMedInstitution.ROWS
+import com.project.interin_app.repository.scheduleMedInstitution.MedInstitution
 
-class InstitutionAdapter(var items: List<ROWS>, val itemClick: Listener) :
-RecyclerView.Adapter<InstitutionAdapter.InstitutionViewHolder>()  {
+class InstitutionAdapter(var items: List<MedInstitution>, val itemClick: Listener) :
+    RecyclerView.Adapter<InstitutionAdapter.InstitutionViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : InstitutionViewHolder {
-        val view =  LayoutInflater.from(parent.context).inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InstitutionViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(
             R.layout.rv_list_of_med_institution,
             parent,
             false
@@ -28,22 +28,22 @@ RecyclerView.Adapter<InstitutionAdapter.InstitutionViewHolder>()  {
         holder.bind(items[position])
     }
 
-
     inner class InstitutionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(institution: ROWS) {
-            val textViewOrganization = itemView.findViewById(R.id.rv_institution_ORGANIZATION) as TextView
+        fun bind(institution: MedInstitution) {
+            val textViewOrganization =
+                itemView.findViewById(R.id.rv_institution_ORGANIZATION) as TextView
             val textViewName = itemView.findViewById(R.id.rv_institution_NAME) as TextView
-            textViewOrganization.text = institution.ORGANIZATION
-            textViewName.text = institution.NAME
-            itemView.setOnClickListener{
-                if(adapterPosition != RecyclerView.NO_POSITION){
+            textViewOrganization.text = institution.organization
+            textViewName.text = institution.name
+            itemView.setOnClickListener {
+                if (adapterPosition != RecyclerView.NO_POSITION) {
                     itemClick.onItemClick(items[adapterPosition])
                 }
             }
         }
     }
 
-    interface Listener{
-        fun onItemClick(institution: ROWS)
+    interface Listener {
+        fun onItemClick(institution: MedInstitution)
     }
 }

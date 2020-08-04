@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import com.project.interin_app.repository.api.DoctorsRepository
 
-class SpecializationViewModel(application: Application): AndroidViewModel(application) {
+class SpecializationViewModel(application: Application) : AndroidViewModel(application) {
 
-    suspend fun getSpecialization() = DoctorsRepository().getSpecializations()
+    suspend fun getSpecialization(params: String) = DoctorsRepository().getSpecializations(params)
 }

@@ -1,18 +1,27 @@
 <resources>
     <string name="app_name">Интерин</string>
-    <string name="first_name">Имя</string>
-    <string name="last_name">Фамилия</string>
-    <string name="date_of_birth">Дата рождения</string>
-    <string name="telephone">Телефон</string>
-    <string name="email">Почта</string>
-    <string name="polis">Полис</string>
-    <string name="comment">Комментарий</string>
-    <string name="sign_up">Записаться</string>
-    <string name="edit">Изменить</string>
-    <string name="data">Данные</string>
-    <string name="record_data">Данные о талоне:</string>
     <string name="cancel_appointment">Отменить запись</string>
+    <string name="comment">Комментарий</string>
+    <string name="data">Данные</string>
+    <string name="date_and_time">Дата и время</string>
+    <string name="date_of_birth">Дата рождения</string>
+    <string name="doctors">Врачи</string>
+    <string name="edit">Изменить</string>
+    <string name="email">Почта</string>
+    <string name="empty_field">…</string>
+    <string name="first_name">Имя</string>
+    <string name="institutions">Учреждения</string>
+    <string name="last_name">Фамилия</string>
+    <string name="polis">Полис</string>
+    <string name="profile">Профиль</string>
+    <string name="record">Запись</string>
+    <string name="record_data">Данные о талоне:</string>
+    <string name="records">Записи</string>
     <string name="save">Сохранить</string>
-    <string name="your_data">Ваши данные:</string>
+    <string name="sign_up">Записаться</string>
     <string name="specialization">Специальность</string>
+    <string name="specializations">Специализации</string>
+    <string name="telephone">Телефон</string>
+    <string name="your_data">Ваши данные:</string>
+
 </resources>

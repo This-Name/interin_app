@@ -9,33 +9,30 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.project.interin_app.R
+import com.project.interin_app.repository.userData.Records
 import kotlinx.coroutines.launch
 
-class UserEditRecordFragment : Fragment(R.layout.fragment_user_edit_record)  {
+class UserEditRecordFragment : Fragment(R.layout.fragment_user_edit_record) {
+    private val userEditRecordViewModel by viewModels<UserEditRecordViewModel>()
+    private lateinit var inputData: Records
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.title = getString(R.string.record)
+        inputData = arguments?.getParcelable("Record")!!
 
-        activity?.title = "Запись"
-
-        val userEditRecordViewModel by viewModels<UserEditRecordViewModel>()
-        var inputData = arguments?.getStringArrayList("infSlot")
-
-        view.findViewById<TextView>(R.id.fuer_record2).setText(inputData?.get(4))
-        view.findViewById<TextView>(R.id.fuer_record3).setText(inputData?.get(5))
-        view.findViewById<TextView>(R.id.fuer_record4).setText(inputData?.get(3))
-        view.findViewById<TextView>(R.id.fuer_record5).setText(inputData?.get(2))
-
-
-        val id = inputData?.get(1)
-        val slot_id = inputData?.get(0)
-        val doctor = inputData?.get(3)
+        view.findViewById<TextView>(R.id.fuer_record2).text = inputData.institution
+        view.findViewById<TextView>(R.id.fuer_record3).text = inputData.specialization
+        view.findViewById<TextView>(R.id.fuer_record4).text = inputData.doctor
+        view.findViewById<TextView>(R.id.fuer_record5).text = inputData.date
+        val id = inputData.idRecord
+        val slotId = inputData.slotId
+        val doctor = inputData.doctor
         view.findViewById<Button>(R.id.fuer_delete_button).setOnClickListener {
             viewLifecycleOwner.lifecycleScope.launch {
-                userEditRecordViewModel.deleteRecordAPI("{ID:\"$id\",SLOT_ID:\"$slot_id\"}")
-                userEditRecordViewModel.deleteRecordDB("$doctor")
+                userEditRecordViewModel.deleteRecordAPI("{ID:\"$id\",SLOT_ID:\"$slotId\"}")
+                userEditRecordViewModel.deleteRecordDB(doctor)
                 findNavController().navigate(R.id.action_user_Edit_RecordsFragment_to_user_RecordsFragment)
             }
         }
-
     }
 }

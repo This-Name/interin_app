@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
+import com.project.interin_app.repository.slotDoctorsAppointment.Slot
 import com.project.interin_app.repository.userData.Records
 
 class UserRecordsAdapter(var items: List<Records>, val itemClick: Listener) :
     RecyclerView.Adapter<UserRecordsAdapter.RecordsViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : RecordsViewHolder {
-        val view =  LayoutInflater.from(parent.context).inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecordsViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(
             R.layout.rv_list_of_user_records,
             parent,
             false
@@ -24,6 +25,11 @@ class UserRecordsAdapter(var items: List<Records>, val itemClick: Listener) :
         return items.size
     }
 
+    fun loadRecords(data: List<Any>) {
+        items = data as List<Records>
+        notifyDataSetChanged()
+    }
+
     override fun onBindViewHolder(holder: RecordsViewHolder, position: Int) {
         holder.bind(items[position])
     }
@@ -32,17 +38,17 @@ class UserRecordsAdapter(var items: List<Records>, val itemClick: Listener) :
         fun bind(record: Records) {
             val textViewName = itemView.findViewById(R.id.rv_records_name) as TextView
             val textViewDate = itemView.findViewById(R.id.rv_records_date) as TextView
-            textViewName.text = record.Doctor
-            textViewDate.text = record.Date
-            itemView.setOnClickListener{
-                if(adapterPosition != RecyclerView.NO_POSITION){
+            textViewName.text = record.doctor
+            textViewDate.text = record.date
+            itemView.setOnClickListener {
+                if (adapterPosition != RecyclerView.NO_POSITION) {
                     itemClick.onItemClick(items[adapterPosition])
                 }
             }
         }
     }
 
-    interface Listener{
+    interface Listener {
         fun onItemClick(record: Records)
     }
 }

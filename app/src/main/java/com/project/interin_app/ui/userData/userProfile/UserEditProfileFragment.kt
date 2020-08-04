@@ -1,29 +1,38 @@
 package com.project.interin_app.ui.userData.userProfile
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.project.interin_app.R
 
-class UserEditProfileFragment  : Fragment(R.layout.fragment_user_edit_profile) {
+class UserEditProfileFragment : Fragment(R.layout.fragment_user_edit_profile) {
+    private val userEditProfileViewModel by viewModels<UserEditProfileViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = "Профиль"
-
-        val userEditProfileViewModel by viewModels<UserEditProfileViewModel>()
-
+        activity?.title = getString(R.string.profile)
         view.findViewById<Button>(R.id.feup_save_button).setOnClickListener {
-            userEditProfileViewModel.addUser(view.findViewById<EditText>(R.id.feup_patient_name).getText().toString(),
-                view.findViewById<EditText>(R.id.feup_patient_lastname).getText().toString(),
-                view.findViewById<EditText>(R.id.feup_patient_birthday).getText().toString(),
-                view.findViewById<EditText>(R.id.feup_patient_phone).getText().toString(),
-                view.findViewById<EditText>(R.id.feup_patient_email).getText().toString(),
-                view.findViewById<EditText>(R.id.feup_patient_policy).getText().toString())
+            userEditProfileViewModel.addUser(
+                view.findViewById<EditText>(R.id.feup_patient_name).text.toString(),
+                view.findViewById<EditText>(R.id.feup_patient_lastname).text.toString(),
+                view.findViewById<EditText>(R.id.feup_patient_birthday).text.toString(),
+                view.findViewById<EditText>(R.id.feup_patient_phone).text.toString(),
+                view.findViewById<EditText>(R.id.feup_patient_email).text.toString(),
+                view.findViewById<EditText>(R.id.feup_patient_policy).text.toString()
+            )
             findNavController().navigate(R.id.action_user_Edit_ProfileFragment_to_user_ProfileFragment)
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 }

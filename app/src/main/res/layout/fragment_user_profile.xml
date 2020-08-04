@@ -1,155 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/white_rectangle_for_other_elements"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/fup_record1"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/first_name"
-        android:textSize="15sp"
-        android:padding="5dp"
         android:layout_marginTop="5dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/fup_firstname"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:padding="5dp"
+        android:text="@string/first_name"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/fup_firstname"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="..."
-        android:textSize="20sp"
         android:padding="5dp"
-        app:layout_constraintTop_toBottomOf="@id/fup_record1"
-        app:layout_constraintBottom_toTopOf="@id/fup_record2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="@string/empty_field"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/fup_record2"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/last_name"
-        android:textSize="15sp"
         android:padding="5dp"
-        app:layout_constraintTop_toBottomOf="@id/fup_firstname"
-        app:layout_constraintBottom_toTopOf="@id/fup_lastname"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="@string/last_name"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/fup_lastname"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="..."
-        android:textSize="20sp"
         android:padding="5dp"
-        app:layout_constraintTop_toBottomOf="@id/fup_record2"
-        app:layout_constraintBottom_toTopOf="@id/fup_record3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="@string/empty_field"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/fup_record3"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/date_of_birth"
-        android:textSize="15sp"
         android:padding="5dp"
-        app:layout_constraintTop_toBottomOf="@id/fup_lastname"
-        app:layout_constraintBottom_toTopOf="@id/fup_birthday"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="@string/date_of_birth"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/fup_birthday"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="..."
-        android:textSize="20sp"
         android:padding="5dp"
-        app:layout_constraintTop_toBottomOf="@id/fup_record3"
-        app:layout_constraintBottom_toTopOf="@id/fup_record4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="@string/empty_field"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/fup_record4"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/telephone"
-        android:textSize="15sp"
         android:padding="5dp"
-        app:layout_constraintTop_toBottomOf="@id/fup_birthday"
-        app:layout_constraintBottom_toTopOf="@id/fup_phone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="@string/telephone"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/fup_phone"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="..."
-        android:textSize="20sp"
         android:padding="5dp"
-        app:layout_constraintTop_toBottomOf="@id/fup_record4"
+        android:text="@string/empty_field"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/fup_record5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/fup_record4" />
+
     <TextView
         android:id="@+id/fup_record5"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/email"
-        android:textSize="15sp"
         android:padding="5dp"
-        app:layout_constraintTop_toBottomOf="@id/fup_phone"
-        app:layout_constraintBottom_toTopOf="@id/fup_email"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="@string/email"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/fup_email"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="..."
-        android:textSize="20sp"
         android:padding="5dp"
-        app:layout_constraintTop_toBottomOf="@id/fup_record5"
-        app:layout_constraintBottom_toTopOf="@id/fup_record6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="@string/empty_field"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/fup_record6"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/polis"
-        android:textSize="15sp"
         android:padding="5dp"
-        app:layout_constraintTop_toBottomOf="@id/fup_email"
-        app:layout_constraintBottom_toTopOf="@id/fup_policy"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="@string/polis"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/fup_policy"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="..."
-        android:textSize="20sp"
         android:padding="5dp"
-        app:layout_constraintTop_toBottomOf="@id/fup_record6"
-        app:layout_constraintBottom_toTopOf="@id/fup_edit_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="@string/empty_field"
+        android:textSize="20sp" />
+
     <Button
         android:id="@+id/fup_edit_button"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/edit"
-        android:textColor="#404040"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="15dp"
         android:background="@drawable/rectangle_for_list"
-        app:layout_constraintTop_toBottomOf="@id/fup_policy"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="@string/edit"
+        android:textColor="#404040" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

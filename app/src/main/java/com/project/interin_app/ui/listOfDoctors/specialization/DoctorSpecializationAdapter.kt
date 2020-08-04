@@ -6,13 +6,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.project.interin_app.R
-import com.project.interin_app.repository.doctors.GROUPS
+import com.project.interin_app.repository.doctors.Specialization
 
-class DoctorSpecializationAdapter(var items: List<GROUPS>, val itemClick: Listener) :
+class DoctorSpecializationAdapter(var items: List<Specialization>, val itemClick: Listener) :
     RecyclerView.Adapter<DoctorSpecializationAdapter.SpecializationViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : SpecializationViewHolder {
-        val view =  LayoutInflater.from(parent.context).inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpecializationViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(
             R.layout.rv_list_of_specializations,
             parent,
             false
@@ -29,20 +29,19 @@ class DoctorSpecializationAdapter(var items: List<GROUPS>, val itemClick: Listen
         holder.bind(items[position])
     }
 
-
     inner class SpecializationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(group: GROUPS) {
+        fun bind(group: Specialization) {
             val textViewName = itemView.findViewById<TextView>(R.id.rv_specialization_doctor)
-            textViewName.text = group.NAME
-            itemView.setOnClickListener{
-                if(adapterPosition != RecyclerView.NO_POSITION){
+            textViewName.text = group.name
+            itemView.setOnClickListener {
+                if (adapterPosition != RecyclerView.NO_POSITION) {
                     itemClick.onItemClick(items[adapterPosition])
                 }
             }
         }
     }
 
-    interface Listener{
-        fun onItemClick(specialization: GROUPS)
+    interface Listener {
+        fun onItemClick(specialization: Specialization)
     }
 }
