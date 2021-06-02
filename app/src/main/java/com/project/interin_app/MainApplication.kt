@@ -17,12 +17,10 @@ class MainApplication : Application() {
         super.onCreate()
         instance = this
         database = Room.databaseBuilder(this, UserDataBase::class.java, "database").build()
-        api = Builder()
-            .baseUrl("https://services.interin.ru/")
+        val retrofit = Builder()
+            .baseUrl(BASE_URL)
             .client(OkHttpClient.Builder().build())
-            .addConverterFactory(Json(JsonConfiguration(isLenient = true, ignoreUnknownKeys = true))
-                .asConverterFactory(MediaType.get("application/json")))
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .addConverterFactory(Json(JsonConfiguration())
             .build().create(InterinApi::class.java)
     }
 
