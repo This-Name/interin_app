@@ -17,7 +17,7 @@ class MainApplication : Application() {
         super.onCreate()
         instance = this
         database = Room.databaseBuilder(this, UserDataBase::class.java, "database").build()
-        val retrofit = Builder()
+        val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(OkHttpClient.Builder().build())
             .addConverterFactory(Json(JsonConfiguration())
