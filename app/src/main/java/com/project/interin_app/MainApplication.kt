@@ -21,7 +21,7 @@ class MainApplication : Application() {
             .baseUrl(BASE_URL)
             .client(OkHttpClient.Builder().build())
             .addConverterFactory(Json(JsonConfiguration())
-            .build().create(InterinApi::class.java)
+            .build().create(WebApi::class.java)
     }
 
     companion object {
